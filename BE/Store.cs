@@ -8,8 +8,23 @@ namespace BE
 {
     public class Store
     {
-        private int storeId;
-        private string storeName;
-        private Address storeAddress;
+        private int StoreId;
+        public int storeId
+        {
+            get { return StoreId; }
+            set { StoreId = value; }
+        }
+        private string StoreName;
+        public string storeName
+        {
+            get { return StoreName; }
+            set { StoreName = value; }
+        }
+        private Address StoreAddress;
+        public Address storeAddress
+        {
+            get { return StoreAddress; }
+            set { StoreAddress = value; }
+        }
     }
 }

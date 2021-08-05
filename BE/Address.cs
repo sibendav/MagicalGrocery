@@ -8,11 +8,41 @@ namespace BE
 {
     public class Address
     {
-        private int addressId;
-        private string city;
-        private string street;
-        private int number;
-        private string entery; 
-        private int floor;
+        private int AddressId; 
+        public int addressId
+        {
+            get { return AddressId; }
+            set { AddressId = value; }
+        }
+        private string City;
+        public string city
+        {
+            get { return City; }
+            set { City = value; }
+        }
+        private string Street;
+        public string street
+        {
+            get { return Street; }
+            set { Street = value; }
+        }
+        private int Number;
+        public int number
+        {
+            get { return Number; }
+            set { Number = value; }
+        }
+        private string Entery;
+        public string entery
+        {
+            get { return Entery; }
+            set { Entery = value; }
+        }
+        private int Floor;
+        public int floor
+        {
+            get { return Floor; }
+            set { Floor = value; }
+        }
     }
 }

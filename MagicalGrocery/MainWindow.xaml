@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MagicalGrocery"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" 
+        WindowState="Maximized"
+        >
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Height="46" Margin="32,129,0,0" VerticalAlignment="Top" Width="74" Click="Button_Click"/>
-        <Label Content="checking the firebase" HorizontalAlignment="Left" Height="27" Margin="32,82,0,0" VerticalAlignment="Top" Width="123"/>
-        <Label Name="lblurl" Content="{Binding url}" HorizontalAlignment="Left" Height="27" Margin="32,203,0,0" VerticalAlignment="Top" Width="123"/>
 
+        <local:BasicTitle VerticalAlignment="Top"></local:BasicTitle>
+        <local:ButtonTitles VerticalAlignment="Bottom" ></local:ButtonTitles>
     </Grid>
 </Window>

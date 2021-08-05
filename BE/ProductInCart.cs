@@ -8,9 +8,29 @@ namespace BE
 {
     public class ProductInCart
     {
-        private int productId;
-        private int amount;
-        private double price;
-        private int productQRcode;
+        private int ProductId;
+        public int productId
+        {
+            get { return ProductId; }
+            set { ProductId = value; }
+        }
+        private int Amount;
+        public int amount
+        {
+            get { return Amount; }
+            set { Amount = value; }
+        }
+        private double Price;
+        public double price
+        {
+            get { return Price; }
+            set { Price = value; }
+        }
+        private int ProductQRcode;
+        public int productQRcode
+        {
+            get { return ProductQRcode; }
+            set { ProductQRcode = value; }
+        }
     }
 }
