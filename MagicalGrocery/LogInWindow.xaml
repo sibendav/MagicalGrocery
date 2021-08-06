@@ -1,0 +1,22 @@
+﻿<Window x:Class="MagicalGrocery.LogInWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MagicalGrocery" xmlns:local1="clr-namespace:MagicalGrocery.controls"
+        mc:Ignorable="d"
+        Title="LogInWindow"
+        WindowState="Maximized">
+    <Grid>
+        <local1:UserTitle VerticalAlignment="Top"></local1:UserTitle>
+        <Grid Background="Beige" Margin="-2,91,-0.4,347.6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Button Content="המלצות" Height="33" Margin="152,10,543,0" VerticalAlignment="Top" Width="69" Click="Button_Click_3"/>
+            <Button Content="סטטיסטיקות" Height="33" Margin="319,16,376,0" VerticalAlignment="Top" Width="69" Click="Button_Click_2"/>
+            <Button Content="היסטורית הקניות" Height="33" Margin="462,10,233,0" VerticalAlignment="Top" Width="69" Click="Button_Click_1"/>
+            <Button Content="לאיזור האישי" Height="33" Margin="576,16,119,0" VerticalAlignment="Top" Width="69" Click="Button_Click" RenderTransformOrigin="0.501,0.5"/>
+            <Button Content="לקניה חדשה" Height="33" Margin="34,16,661,0" VerticalAlignment="Top" Width="69" Click="Button_Click_4"/>
+        </Grid>
+        <Grid x:Name="mainGrid" Background="AntiqueWhite" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,158,-0.4,94.6"/>
+        <local:ButtonTitles VerticalAlignment="Bottom" Margin="0,0,-0.4,0" />
+    </Grid>
+</Window>

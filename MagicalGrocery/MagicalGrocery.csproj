@@ -206,6 +206,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="controls\allShoppings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="controls\ButtonTitles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -214,11 +218,43 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="controls\currentShop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="controls\EnterUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="controls\menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\miniShopForListBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\profile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\recommendation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="controls\SignUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\statistics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\UserTitle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LogInWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -230,17 +266,44 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="controls\allShoppings.xaml.cs">
+      <DependentUpon>allShoppings.xaml</DependentUpon>
+    </Compile>
     <Compile Include="controls\ButtonTitles.xaml.cs">
       <DependentUpon>ButtonTitles.xaml</DependentUpon>
     </Compile>
     <Compile Include="controls\BasicTitle.xaml.cs">
       <DependentUpon>BasicTitle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="controls\currentShop.xaml.cs">
+      <DependentUpon>currentShop.xaml</DependentUpon>
+    </Compile>
     <Compile Include="controls\EnterUserControl.xaml.cs">
       <DependentUpon>EnterUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="controls\menu.xaml.cs">
+      <DependentUpon>menu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\miniShopForListBox.xaml.cs">
+      <DependentUpon>miniShopForListBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\profile.xaml.cs">
+      <DependentUpon>profile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\recommendation.xaml.cs">
+      <DependentUpon>recommendation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="controls\SignUserControl.xaml.cs">
       <DependentUpon>SignUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\statistics.xaml.cs">
+      <DependentUpon>statistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\UserTitle.xaml.cs">
+      <DependentUpon>UserTitle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LogInWindow.xaml.cs">
+      <DependentUpon>LogInWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
