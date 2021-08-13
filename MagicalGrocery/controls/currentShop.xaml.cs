@@ -23,6 +23,10 @@ namespace MagicalGrocery.controls
         public currentShop()
         {
             InitializeComponent();
+            for (int i = 0; i < 3; i++)
+            {
+                listbox.Items.Add(new miniShopForListBox());
+            }
         }
     }
 }
