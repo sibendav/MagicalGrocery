@@ -29,8 +29,10 @@ namespace MagicalGrocery.controls
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {   
-            //MessageBox.Show("Your name is:" + user.ToString() +" password: "+ pass.ToString());
+        {           
+            LogInWindow f = new LogInWindow();
+            f.Show();
+            Application.Current.Windows[0].Close();
         }
     }
 }

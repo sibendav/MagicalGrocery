@@ -1,5 +1,4 @@
-﻿using BE;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,24 +16,18 @@ using System.Windows.Shapes;
 namespace MagicalGrocery.controls
 {
     /// <summary>
-    /// Interaction logic for SignUserControl.xaml
+    /// Interaction logic for allShoppings.xaml
     /// </summary>
-    public partial class SignUserControl : UserControl
+    public partial class allShoppings : UserControl
     {
-        public Family family = new Family();
-        public Address address = new Address();
-
-        public SignUserControl()
+        int num = 3;
+        public allShoppings()
         {
             InitializeComponent();
-            DataContext = this;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            LogInWindow f = new LogInWindow();
-            f.Show();
-            Application.Current.Windows[0].Close();
+            for (int i=0; i < num; i++)
+            {
+                listbox.Items.Add(new miniShopForListBox());
+            }
         }
     }
 }

@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="MagicalGrocery.controls.recommendation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MagicalGrocery.controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Button Content="הורד המלצות" HorizontalAlignment="Left" Height="59" Margin="274,358,0,0" VerticalAlignment="Top" Width="275"/>
+        <ListView x:Name="listbox" HorizontalAlignment="Left" Height="190" Margin="195,96,0,0" VerticalAlignment="Top" Width="391">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</UserControl>

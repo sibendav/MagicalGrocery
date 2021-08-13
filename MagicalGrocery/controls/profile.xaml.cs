@@ -1,5 +1,4 @@
-﻿using BE;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,24 +16,23 @@ using System.Windows.Shapes;
 namespace MagicalGrocery.controls
 {
     /// <summary>
-    /// Interaction logic for SignUserControl.xaml
+    /// Interaction logic for profile.xaml
     /// </summary>
-    public partial class SignUserControl : UserControl
+    public partial class profile : UserControl
     {
-        public Family family = new Family();
-        public Address address = new Address();
-
-        public SignUserControl()
+        public profile()
         {
             InitializeComponent();
-            DataContext = this;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            LogInWindow f = new LogInWindow();
-            f.Show();
-            Application.Current.Windows[0].Close();
+            if (groupbox.IsEnabled == false)
+                groupbox.IsEnabled = true;
+            else
+                groupbox.IsEnabled = false;
+            //update the database
+
         }
     }
 }
