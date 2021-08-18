@@ -20,8 +20,8 @@ namespace MagicalGrocery.controls
     /// </summary>
     public partial class EnterUserControl : UserControl
     {
-        public string user { get; set; }
-        public string pass { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
         public EnterUserControl()
         {
             InitializeComponent();

@@ -8,6 +8,13 @@ namespace BE
 {
     public class ProductInCart
     {
+        private int CartId;
+        public int cartId
+        {
+            get { return CartId; }
+            set { CartId = value; }
+        }
+
         private int ProductId;
         public int productId
         {

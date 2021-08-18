@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:MagicalGrocery"
         mc:Ignorable="d"
         Title="MainWindow"
-        WindowState="Maximized">
+        WindowState="Maximized"
+        Name="mainWin">
     <Grid>
         <local:BasicTitle VerticalAlignment="Top"></local:BasicTitle>
         <local:ButtonTitles VerticalAlignment="Bottom" ></local:ButtonTitles>

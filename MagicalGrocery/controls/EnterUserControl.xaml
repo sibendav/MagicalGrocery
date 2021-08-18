@@ -10,9 +10,9 @@
         <Label  HorizontalAlignment="Center" Content="כניסה"  Height="57" Margin="102,25,109,368" Width="233"/>
         <Label  HorizontalAlignment="Center" Content="סיסמה" Margin="296,152,26,263" Width="122"/>
         <Label  HorizontalAlignment="Center" Content="שם משתמש" Margin="298,99,26,321" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="63,99,0,0" TextWrapping="Wrap" Text="{Binding Path=DataContext.user}" VerticalAlignment="Top" Width="206"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="63,152,0,0" TextWrapping="Wrap" Text="{Binding Path=DataContext.pass}" VerticalAlignment="Top" Width="206"/>
-        <Button IsEnabled="True" Content="כניסה" HorizontalAlignment="Left" Height="46" Margin="63,260,0,0" VerticalAlignment="Top" Width="355" Click="Button_Click">
+        <TextBox Name="textBox1" HorizontalAlignment="Left" Height="30" Margin="63,99,0,0" TextWrapping="Wrap" Text="{Binding UserName.DataValue, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}" VerticalAlignment="Top" Width="206"/>
+        <TextBox Name="passwordBox1" Text="{Binding Password.DataValue, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}" HorizontalAlignment="Left" Height="30" Margin="63,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
+        <Button Name="button1" Command="{Binding LoginViewFiredCommand}" IsEnabled="True" Content="כניסה" HorizontalAlignment="Left" Height="46" Margin="63,260,0,0" VerticalAlignment="Top" Width="355" >
             <Button.Style>
                 <Style>
                     <Style.Triggers>
