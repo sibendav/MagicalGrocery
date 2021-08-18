@@ -8,8 +8,8 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Margin="0,0,0,332.6">
         <Image Source="C:\Users\simha\source\repos\MagicalGrocery\MagicalGrocery\images\icon.png" HorizontalAlignment="Left" Height="95" Margin="30,10,0,0" VerticalAlignment="Top" Width="337"/>
-        <Button Content="כניסה" HorizontalAlignment="Right" Height="61" Margin="0,27,20,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Button Content="הרשמה" HorizontalAlignment="Right" Height="61" Margin="0,27,115,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button Command="{Binding AddCommand}"  CommandParameter="{Binding ElementName=mainGrid}" Content="כניסה" HorizontalAlignment="Right" Height="61" Margin="0,27,20,0" VerticalAlignment="Top" Width="75"/>
+        <Button Command="{Binding AddCommand1}"  CommandParameter="{Binding ElementName=mainGrid}" Content="הרשמה" HorizontalAlignment="Right" Height="61" Margin="0,27,115,0" VerticalAlignment="Top" Width="75"/>
         <Grid x:Name="mainGrid" Background="AntiqueWhite" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,113,0,-339" />
     </Grid>
 </UserControl>

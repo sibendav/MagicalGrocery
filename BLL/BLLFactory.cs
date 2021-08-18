@@ -8,7 +8,7 @@ namespace BLL
 {
     public class BLFactory
     {
-        public static IBll instance;
+        private static IBll instance;
 
         protected BLFactory() { instance = null; }
         public static IBll getBL()

@@ -8,7 +8,7 @@ namespace DAL
 {
     public class DALFactory
     {
-        public static IDal instance;
+        private static IDal instance;
 
         protected DALFactory() { instance = null; }
         public static IDal getDal()

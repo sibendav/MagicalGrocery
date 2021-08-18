@@ -21,6 +21,7 @@ namespace BLL
 
         public bool addFamily(Family var)
         {
+            return true;
             throw new NotImplementedException();
         }
 

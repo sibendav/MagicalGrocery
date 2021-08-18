@@ -9,16 +9,21 @@ namespace MagicalGrocery.commands
 {
     public class PassCheckCommand : ICommand
     {
+        public event Action<string, string> checkInUser;
+
         public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            var values = (object[])parameter;
+            string userName = values[0].ToString();
+            string Pass = values[1].ToString();
+            checkInUser(userName, Pass);
         }
     }
 }

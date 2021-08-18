@@ -206,7 +206,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="commands\AddItemCommand.cs" />
+    <Compile Include="commands\AddNewUser.cs" />
+    <Compile Include="Converters\newUserConverter.cs" />
+    <Compile Include="Converters\UserPassConverter.cs" />
+    <Compile Include="ViewModel\EnterUserVM.cs" />
     <Compile Include="ViewModel\MainWinVM.cs" />
+    <Compile Include="ViewModel\resignVM.cs" />
     <Page Include="controls\allShoppings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -347,6 +353,10 @@
     <ProjectReference Include="..\BE\BE.csproj">
       <Project>{2E78942D-CD6A-4FB4-BC76-CE16F1F29C2C}</Project>
       <Name>BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{287C349F-03AC-47DD-8273-7E13D65F7C06}</Project>
+      <Name>BLL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
