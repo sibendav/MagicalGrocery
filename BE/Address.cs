@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,8 @@ namespace BE
 {
     public class Address
     {
-        private int AddressId; 
+        private int AddressId;
+        [Key]
         public int addressId
         {
             get { return AddressId; }

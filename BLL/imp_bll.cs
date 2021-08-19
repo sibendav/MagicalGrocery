@@ -1,4 +1,5 @@
 ﻿using BE;
+using DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,8 +22,8 @@ namespace BLL
 
         public bool addFamily(Family var)
         {
-            return true;
-            throw new NotImplementedException();
+            return DALFactory.getDal().addFamily(var);
+            //throw new NotImplementedException();
         }
 
         public bool addProduct(Product var)

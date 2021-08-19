@@ -14,6 +14,8 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -62,6 +64,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
       <Private>True</Private>
@@ -208,11 +211,13 @@
     </ApplicationDefinition>
     <Compile Include="commands\AddItemCommand.cs" />
     <Compile Include="commands\AddNewUser.cs" />
+    <Compile Include="commands\dispossUser.cs" />
     <Compile Include="Converters\newUserConverter.cs" />
     <Compile Include="Converters\UserPassConverter.cs" />
     <Compile Include="ViewModel\EnterUserVM.cs" />
     <Compile Include="ViewModel\MainWinVM.cs" />
     <Compile Include="ViewModel\resignVM.cs" />
+    <Compile Include="ViewModel\userTitleVM.cs" />
     <Page Include="controls\allShoppings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

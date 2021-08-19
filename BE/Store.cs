@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +10,7 @@ namespace BE
 {
     public class Store
     {
+        [Key]
         private int StoreId;
         public int storeId
         {
@@ -20,11 +23,12 @@ namespace BE
             get { return StoreName; }
             set { StoreName = value; }
         }
-        private Address StoreAddress;
-        public Address storeAddress
+        [ForeignKey("Store")]
+        private int StoreAddressId;
+        public int storeAddressId
         {
-            get { return StoreAddress; }
-            set { StoreAddress = value; }
+            get { return StoreAddressId; }
+            set { StoreAddressId = value; }
         }
     }
 }

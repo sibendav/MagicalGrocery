@@ -25,7 +25,7 @@ namespace MagicalGrocery.ViewModel
         {
             // TODO
             //Checking if the password is ok
-            LogInWindow f = new LogInWindow();
+            LogInWindow f = new LogInWindow(arg1);
             f.Show();
         }
     }
