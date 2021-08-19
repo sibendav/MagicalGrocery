@@ -11,24 +11,25 @@ namespace BE
     public class Store
     {
         [Key]
-        private int StoreId;
-        public int storeId
-        {
-            get { return StoreId; }
-            set { StoreId = value; }
-        }
-        private string StoreName;
-        public string storeName
-        {
-            get { return StoreName; }
-            set { StoreName = value; }
-        }
-        [ForeignKey("Store")]
-        private int StoreAddressId;
-        public int storeAddressId
-        {
-            get { return StoreAddressId; }
-            set { StoreAddressId = value; }
-        }
+        //private int StoreId;
+        public int storeId { get; set; }
+        //{
+        //    get { return StoreId; }
+        //    set { StoreId = value; }
+        //}
+        //private string StoreName;
+        public string storeName { get; set; }
+        //{
+        //    get { return StoreName; }
+        //    set { StoreName = value; }
+        //}
+        [ForeignKey("store")]
+        //private int StoreAddressId;
+        public int storeAddressId { get; set; }
+        public virtual Store store { get; set; }
+        //{
+        //    get { return StoreAddressId; }
+        //    set { StoreAddressId = value; }
+        //}
     }
 }

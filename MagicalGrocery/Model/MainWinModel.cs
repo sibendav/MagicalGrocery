@@ -13,9 +13,13 @@ namespace MagicalGrocery.Model
 {
     public class MainWinModel
     {
-        public void Add(Family fam)
+        public Family AddFamily(Family fam)
         {
-            BLFactory.getBL().addFamily(fam);
+            return BLFactory.getBL().addFamily(fam);
+        }
+        public Address AddAddress(Address add)
+        {
+            return BLFactory.getBL().addAddress(add);
         }
     }
 }

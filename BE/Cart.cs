@@ -10,50 +10,52 @@ namespace BE
 {
     public class Cart
     {
-        private int CartId;
+        //private int CartId;
         [Key]
-        public int cartId
-        {
-            get { return CartId; }
-            set { CartId = value; }
-        }
-        private int FamilyId;
-        [ForeignKey("Family")]
-        public int familyId
-        {
-            get { return FamilyId; }
-            set { FamilyId = value; }
-        }
-        private DateTime PaymentDate;
-        public DateTime paymentDate
-        {
-            get { return PaymentDate; }
-            set { PaymentDate = value; }
-        }
-        private int NumOfProducts;
-        public int numOfProducts
-        {
-            get { return NumOfProducts; }
-            set { NumOfProducts = value; }
-        }
-        private double SumToPay;
-        public double sumToPay
-        {
-            get { return SumToPay; }
-            set { SumToPay = value; }
-        }
-        private bool Status;
-        public bool status
-        {
-            get { return Status; }
-            set { Status = value; }
-        }
-        private int StoreId;
-        [ForeignKey("Store")]
-        public int storeId
-        {
-            get { return StoreId; }
-            set { StoreId = value; }
-        }
+        public int cartId { get; set; }     
+        //{
+        //    get { return CartId; }
+        //    set { CartId = value; }
+        //}
+        //private int FamilyId;
+        [ForeignKey("family")]
+        public int familyId { get; set; }
+        public virtual Family family { get; set; }
+        //{
+        //    get { return FamilyId; }
+        //    set { FamilyId = value; }
+        //}
+        //private DateTime PaymentDate;
+        public DateTime paymentDate { get; set; }
+        //{
+        //    get { return PaymentDate; }
+        //    set { PaymentDate = value; }
+        //}
+        //private int NumOfProducts;
+        public int numOfProducts { get; set; }
+        //{
+        //    get { return NumOfProducts; }
+        //    set { NumOfProducts = value; }
+        //}
+        //private double SumToPay;
+        public double sumToPay { get; set; }
+        //{
+        //    get { return SumToPay; }
+        //    set { SumToPay = value; }
+        //}
+        //private bool Status;
+        public bool status { get; set; }
+        //{
+        //    get { return Status; }
+        //    set { Status = value; }
+        //}
+        //private int StoreId;
+        //[ForeignKey("store")]
+        //public int storeId { get; set; }
+        //public virtual Store store { get; set; }
+        //{
+        //    get { return StoreId; }
+        //    set { StoreId = value; }
+        //}
     }
 }

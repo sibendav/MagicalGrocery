@@ -12,29 +12,29 @@ namespace BE
     public class QRcode
     {
         [Key]
-        private int Qrcode;
-        public int qrcode
-        {
-            get { return Qrcode; }
-            set { Qrcode = value; }
-        }
-        private GeoCoordinate Location;
-        public GeoCoordinate location
-        {
-            get { return Location; }
-            set { Location = value; }
-        }
-        private DateTime Time;
-        public DateTime time
-        {
-            get { return Time; }
-            set { Time = value; }
-        }
-        private String qRcodePicDir;
-        public String QRcodePicDir
-        {
-            get { return qRcodePicDir; }
-            set { qRcodePicDir = value; }
-        }
+        //private int Qrcode;
+        public int qrcode { get; set; }
+        //{
+        //    get { return Qrcode; }
+        //    set { Qrcode = value; }
+        //}
+        //private GeoCoordinate Location;
+        public GeoCoordinate location { get; set; }
+        //{
+        //    get { return Location; }
+        //    set { Location = value; }
+        //}
+        //private DateTime Time;
+        public DateTime time { get; set; }
+        //{
+        //    get { return Time; }
+        //    set { Time = value; }
+        //}
+        //private String qRcodePicDir;
+        public String QRcodePicDir { get; set; }
+        //{
+        //    get { return qRcodePicDir; }
+        //    set { qRcodePicDir = value; }
+        //}
     }
 }
