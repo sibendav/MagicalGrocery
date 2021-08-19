@@ -1,4 +1,5 @@
 ﻿using MagicalGrocery.controls;
+using MagicalGrocery.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,27 +22,16 @@ namespace MagicalGrocery
     /// </summary>
     public partial class BasicTitle : UserControl
     {
+        private MainWinVM currentVM;
+
         public BasicTitle()
         {
             InitializeComponent();
+            currentVM = new MainWinVM();
+            this.DataContext = currentVM;
+            
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            EnterUserControl enterUser = new EnterUserControl();
-            enterUser.HorizontalAlignment = HorizontalAlignment.Center;
-            enterUser.VerticalAlignment = VerticalAlignment.Center;
-            mainGrid.Children.Clear();
-            mainGrid.Children.Add(enterUser);
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            SignUserControl enterUser = new SignUserControl();
-            enterUser.HorizontalAlignment = HorizontalAlignment.Center;
-            enterUser.VerticalAlignment = VerticalAlignment.Center;
-            mainGrid.Children.Clear();
-            mainGrid.Children.Add(enterUser);
-        }
+        
     }
 }

@@ -20,7 +20,7 @@ namespace MagicalGrocery
     /// </summary>
     public partial class LogInWindow : Window
     {
-        public LogInWindow()
+        public LogInWindow(string famName)
         {
             InitializeComponent();
         }

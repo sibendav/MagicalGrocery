@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MagicalGrocery.ViewModel;
+using MagicalGrocery.Converters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,18 +22,16 @@ namespace MagicalGrocery.controls
     /// </summary>
     public partial class EnterUserControl : UserControl
     {
-        public string UserName { get; set; }
-        public string Password { get; set; }
+        private EnterUserVM CurrentVm;
         public EnterUserControl()
         {
             InitializeComponent();
-            DataContext = this;
+            CurrentVm = new EnterUserVM();
+            this.DataContext = CurrentVm;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {           
-            LogInWindow f = new LogInWindow();
-            f.Show();
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
             Application.Current.Windows[0].Close();
         }
     }

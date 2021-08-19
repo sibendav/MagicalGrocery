@@ -1,4 +1,5 @@
 ﻿using BE;
+using DataBaseEF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace DAL
 
         public bool addFamily(Family var)
         {
-            throw new NotImplementedException();
+            return DataBaseEF.addingToDB.addFamily(var);
         }
 
         public bool addProduct(Product var)

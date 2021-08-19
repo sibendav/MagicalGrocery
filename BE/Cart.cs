@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,12 +11,14 @@ namespace BE
     public class Cart
     {
         private int CartId;
+        [Key]
         public int cartId
         {
             get { return CartId; }
             set { CartId = value; }
         }
         private int FamilyId;
+        [ForeignKey("Family")]
         public int familyId
         {
             get { return FamilyId; }
@@ -25,12 +29,6 @@ namespace BE
         {
             get { return PaymentDate; }
             set { PaymentDate = value; }
-        }
-        private List<ProductInCart> Pruducts;
-        public List<ProductInCart> pruducts
-        {
-            get { return Pruducts; }
-            set { Pruducts = value; }
         }
         private int NumOfProducts;
         public int numOfProducts
@@ -51,6 +49,7 @@ namespace BE
             set { Status = value; }
         }
         private int StoreId;
+        [ForeignKey("Store")]
         public int storeId
         {
             get { return StoreId; }

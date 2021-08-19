@@ -5,11 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using Nest;
+using System.ComponentModel.DataAnnotations;
 
 namespace BE
 {
     public class QRcode
     {
+        [Key]
         private int Qrcode;
         public int qrcode
         {

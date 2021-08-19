@@ -7,11 +7,13 @@ using System.Windows.Input;
 
 namespace MagicalGrocery.commands
 {
-    public class PassCheckCommand : ICommand
+    public class dispossUser : ICommand
     {
-        public event Action<string, string> checkInUser;
-
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
 
         public bool CanExecute(object parameter)
         {
@@ -20,10 +22,8 @@ namespace MagicalGrocery.commands
 
         public void Execute(object parameter)
         {
-            var values = (object[])parameter;
-            string userName = values[0].ToString();
-            string Pass = values[1].ToString();
-            checkInUser(userName, Pass);
+            MainWindow f = new MainWindow();
+            f.Show();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MagicalGrocery.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,16 +21,17 @@ namespace MagicalGrocery.controls
     /// </summary>
     public partial class UserTitle : UserControl
     {
+        public userTitleVM currentVM;
         public UserTitle()
         {
             InitializeComponent();
+            currentVM = new userTitleVM();
+            this.DataContext = currentVM;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Windows[0].Hide();
-            MainWindow f = new MainWindow();
-            f.Show();            
+            Application.Current.Windows[0].Hide();           
         }
     }
 }

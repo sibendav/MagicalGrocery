@@ -9,7 +9,7 @@
         WindowState="Maximized"
         Name="mainWin">
     <Grid>
-        <local:BasicTitle VerticalAlignment="Top"></local:BasicTitle>
+        <local:BasicTitle x:Name="topWin" VerticalAlignment="Top"></local:BasicTitle>
         <local:ButtonTitles VerticalAlignment="Bottom" ></local:ButtonTitles>
     </Grid>
 </Window>

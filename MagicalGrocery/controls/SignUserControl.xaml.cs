@@ -1,4 +1,5 @@
 ﻿using BE;
+using MagicalGrocery.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,20 +22,19 @@ namespace MagicalGrocery.controls
     /// </summary>
     public partial class SignUserControl : UserControl
     {
-        public Family family = new Family();
-        public Address address = new Address();
+        public resignVM currentVM;
 
         public SignUserControl()
         {
             InitializeComponent();
-            DataContext = this;
+            currentVM = new resignVM();
+            this.DataContext = currentVM;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            LogInWindow f = new LogInWindow();
-            f.Show();
             Application.Current.Windows[0].Close();
         }
+
     }
 }
