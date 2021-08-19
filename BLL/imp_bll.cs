@@ -10,40 +10,41 @@ namespace BLL
 {
     public class imp_bll : IBll
     {
-        public bool addAddress(Address var)
+        public Address addAddress(Address var)
         {
-            throw new NotImplementedException();
+            return DALFactory.getDal().addAddress(var);
+            //throw new NotImplementedException();
         }
 
-        public bool addCart(Cart var)
+        public Cart addCart(Cart var)
         {
-            throw new NotImplementedException();
+            return DALFactory.getDal().addCart(var);
         }
 
-        public bool addFamily(Family var)
+        public Family addFamily(Family var)
         {
             return DALFactory.getDal().addFamily(var);
             //throw new NotImplementedException();
         }
 
-        public bool addProduct(Product var)
+        public Product addProduct(Product var)
         {
-            throw new NotImplementedException();
+            return DALFactory.getDal().addProduct(var);
         }
 
-        public bool addProductInCart(ProductInCart var)
+        public ProductInCart addProductInCart(ProductInCart var)
         {
-            throw new NotImplementedException();
+            return DALFactory.getDal().addProductInCart(var);
         }
 
-        public bool addQRcode(QRcode var)
+        public QRcode addQRcode(QRcode var)
         {
-            throw new NotImplementedException();
+            return DALFactory.getDal().addQRcode(var);
         }
 
-        public bool addStore(Store var)
+        public Store addStore(Store var)
         {
-            throw new NotImplementedException();
+            return DALFactory.getDal().addStore(var);
         }
 
         public bool deleteAddress(Address var)
@@ -83,37 +84,41 @@ namespace BLL
 
         public Address returnAddress(int var)
         {
-            throw new NotImplementedException();
+            return DALFactory.getDal().returnAddress(var);
         }
 
         public List<Address> returnAllAddress()
         {
-            throw new NotImplementedException();
+            return DALFactory.getDal().returnAllAddress();
         }
 
         public List<Cart> returnAllCart()
         {
-            throw new NotImplementedException();
+            return DALFactory.getDal().returnAllCart();
         }
 
         public List<Family> returnAllFamily()
         {
-            throw new NotImplementedException();
+            return DALFactory.getDal().returnAllFamily();
         }
 
         public List<Cart> returnAllOfFamilyCart(int var)
         {
-            throw new NotImplementedException();
+            var allcarts = returnAllCart();
+            var carts = (from i in allcarts
+                         where i.familyId == var
+                         select i).ToList<Cart>();
+            return carts;
         }
 
         public List<Product> returnAllProduct()
         {
-            throw new NotImplementedException();
+            return DALFactory.getDal().returnAllProduct();
         }
 
         public List<ProductInCart> returnAllProductInCart()
         {
-            throw new NotImplementedException();
+            return DALFactory.getDal().returnAllProductInCart();
         }
 
         public List<Cart> returnAllProductsInCart(int var)
@@ -123,77 +128,77 @@ namespace BLL
 
         public List<QRcode> returnAllQRcode()
         {
-            throw new NotImplementedException();
+            return DALFactory.getDal().returnAllQRcode();
         }
 
         public List<Store> returnAllStore()
         {
-            throw new NotImplementedException();
+            return DALFactory.getDal().returnAllStore();
         }
 
         public Cart returnCart(int var)
         {
-            throw new NotImplementedException();
+            return DALFactory.getDal().returnCart(var);
         }
 
         public Family returnFamily(int var)
         {
-            throw new NotImplementedException();
+            return DALFactory.getDal().returnFamily(var);
         }
 
         public Product returnProduct(int var)
         {
-            throw new NotImplementedException();
+            return DALFactory.getDal().returnProduct(var);
         }
 
         public ProductInCart returnProductInCart(int var)
         {
-            throw new NotImplementedException();
+            return DALFactory.getDal().returnProductInCart(var);
         }
 
         public QRcode returnQRcode(int var)
         {
-            throw new NotImplementedException();
+            return DALFactory.getDal().returnQRcode(var);
         }
 
         public Store returnStore(int var)
         {
-            throw new NotImplementedException();
+            return DALFactory.getDal().returnStore(var);
         }
 
-        public bool updateAddress(Address var)
+        public Address updateAddress(Address var)
         {
-            throw new NotImplementedException();
+            return DALFactory.getDal().updateAddress(var);
         }
 
-        public bool updateCart(Cart var)
+        public Cart updateCart(Cart var)
         {
-            throw new NotImplementedException();
+            return DALFactory.getDal().updateCart(var);
         }
 
-        public bool updateFamily(Family var)
+        public Family updateFamily(Family var)
         {
-            throw new NotImplementedException();
+            return DALFactory.getDal().updateFamily(var);
         }
 
-        public bool updateProduct(Product var)
+        public Product updateProduct(Product var)
         {
-            throw new NotImplementedException();
+            return DALFactory.getDal().updateProduct(var);
         }
 
-        public bool updateProductInCart(ProductInCart var)
+        public ProductInCart updateProductInCart(ProductInCart var)
         {
-            throw new NotImplementedException();
+            return DALFactory.getDal().updateProductInCart(var);
         }
 
-        public bool updateQRcode(QRcode var)
+        public QRcode updateQRcode(QRcode var)
         {
-            throw new NotImplementedException();
+            return DALFactory.getDal().updateQRcode(var);
         }
 
-        public bool updateStore(Store var)
+        public Store updateStore(Store var)
         {
-            throw new NotImplementedException();
+            return DALFactory.getDal().updateStore(var);
         }
     }
 }

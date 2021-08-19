@@ -9,32 +9,32 @@ namespace BLL
 {
     public interface IBll
     {
-        bool addFamily(Family var);
-        bool updateFamily(Family var);
+        Family addFamily(Family var);
+        Family updateFamily(Family var);
         bool deleteFamily(Family var);
 
-        bool addAddress(Address var);
-        bool updateAddress(Address var);
+        Address addAddress(Address var);
+        Address updateAddress(Address var);
         bool deleteAddress(Address var);
 
-        bool addStore(Store var);
-        bool updateStore(Store var);
+        Store addStore(Store var);
+        Store updateStore(Store var);
         bool deleteStore(Store var);
 
-        bool addProduct(Product var);
-        bool updateProduct(Product var);
+        Product addProduct(Product var);
+        Product updateProduct(Product var);
         bool deleteProduct(Product var);
 
-        bool addCart(Cart var);
-        bool updateCart(Cart var);
+        Cart addCart(Cart var);
+        Cart updateCart(Cart var);
         bool deleteCart(Cart var);
 
-        bool addProductInCart(ProductInCart var);
-        bool updateProductInCart(ProductInCart var);
+        ProductInCart addProductInCart(ProductInCart var);
+        ProductInCart updateProductInCart(ProductInCart var);
         bool deleteProductInCart(ProductInCart var);
 
-        bool addQRcode(QRcode var);
-        bool updateQRcode(QRcode var);
+        QRcode addQRcode(QRcode var);
+        QRcode updateQRcode(QRcode var);
         bool deleteQRcode(QRcode var);
 
         Family returnFamily(int var);

@@ -37,9 +37,9 @@ namespace MagicalGrocery.commands
             Address newadd = new Address();
             newadd.city = values[2].ToString();
             newadd.street = values[3].ToString();
-            newadd.number = 0;//(int)values[4];
+            newadd.number = Convert.ToInt32(values[4]);
             newadd.entery = values[5].ToString();
-            newadd.floor = 0;// (int)values[6];
+            newadd.floor = Convert.ToInt32(values[6]);
 
             AddUser(newfam, newadd);
             LogInWindow f = new LogInWindow(newfam.familyName);

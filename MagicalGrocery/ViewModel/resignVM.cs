@@ -28,7 +28,13 @@ namespace MagicalGrocery.ViewModel
 
         private void AddNewUserCommand_AddUser(BE.Family obj, BE.Address obj2)
         {
-            CurrentModel.Add(obj);
+            // adding the address
+            obj2 = CurrentModel.AddAddress(obj2);
+            obj.addressOfFamilyId = obj2.addressId;
+            obj.address = obj2;
+
+            // adding the Family
+            obj = CurrentModel.AddFamily(obj);
         }
     }
 }

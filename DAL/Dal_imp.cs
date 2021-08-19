@@ -10,39 +10,39 @@ namespace DAL
 {
     public class Dal_imp : IDal
     {
-        public bool addAddress(Address var)
+        public Address addAddress(Address var)
         {
-            throw new NotImplementedException();
+            return DataBaseEF.addingToDB.addAddress(var);
         }
 
-        public bool addCart(Cart var)
+        public Cart addCart(Cart var)
         {
-            throw new NotImplementedException();
+            return DataBaseEF.addingToDB.addCart(var);
         }
 
-        public bool addFamily(Family var)
+        public Family addFamily(Family var)
         {
             return DataBaseEF.addingToDB.addFamily(var);
         }
 
-        public bool addProduct(Product var)
+        public Product addProduct(Product var)
         {
-            throw new NotImplementedException();
+            return DataBaseEF.addingToDB.addProduct(var);
         }
 
-        public bool addProductInCart(ProductInCart var)
+        public ProductInCart addProductInCart(ProductInCart var)
         {
-            throw new NotImplementedException();
+            return DataBaseEF.addingToDB.addProductInCart(var);
         }
 
-        public bool addQRcode(QRcode var)
+        public QRcode addQRcode(QRcode var)
         {
-            throw new NotImplementedException();
+            return DataBaseEF.addingToDB.addQRcode(var);
         }
 
-        public bool addStore(Store var)
+        public Store addStore(Store var)
         {
-            throw new NotImplementedException();
+            return DataBaseEF.addingToDB.addStore(var);
         }
 
         public bool deleteAddress(Address var)
@@ -82,107 +82,107 @@ namespace DAL
 
         public Address returnAddress(int var)
         {
-            throw new NotImplementedException();
+            return DataBaseEF.returningFromDB.returnAddress(var);
         }
 
         public List<Address> returnAllAddress()
         {
-            throw new NotImplementedException();
+            return DataBaseEF.returnTable.returnAddress();
         }
 
         public List<Cart> returnAllCart()
         {
-            throw new NotImplementedException();
+            return DataBaseEF.returnTable.returnCart();
         }
 
         public List<Family> returnAllFamily()
         {
-            throw new NotImplementedException();
+            return DataBaseEF.returnTable.returnFamily();
         }
 
         public List<Product> returnAllProduct()
         {
-            throw new NotImplementedException();
+            return DataBaseEF.returnTable.returnProduct();
         }
 
         public List<ProductInCart> returnAllProductInCart()
         {
-            throw new NotImplementedException();
+            return DataBaseEF.returnTable.returnProductInCart();
         }
 
         public List<QRcode> returnAllQRcode()
         {
-            throw new NotImplementedException();
+            return DataBaseEF.returnTable.returnQRcode();
         }
 
         public List<Store> returnAllStore()
         {
-            throw new NotImplementedException();
+            return DataBaseEF.returnTable.returnAllStore();
         }
 
         public Cart returnCart(int var)
         {
-            throw new NotImplementedException();
+            return DataBaseEF.returningFromDB.returnCart(var);
         }
 
         public Family returnFamily(int var)
         {
-            throw new NotImplementedException();
+            return DataBaseEF.returningFromDB.returnFamily(var);
         }
 
         public Product returnProduct(int var)
         {
-            throw new NotImplementedException();
+            return DataBaseEF.returningFromDB.returnProduct(var);
         }
 
         public ProductInCart returnProductInCart(int var)
         {
-            throw new NotImplementedException();
+            return DataBaseEF.returningFromDB.returnProductInCart(var);
         }
 
         public QRcode returnQRcode(int var)
         {
-            throw new NotImplementedException();
+            return DataBaseEF.returningFromDB.returnQRcode(var);
         }
 
         public Store returnStore(int var)
         {
-            throw new NotImplementedException();
+            return DataBaseEF.returningFromDB.returnStore(var);
         }
 
-        public bool updateAddress(Address var)
+        public Address updateAddress(Address var)
         {
-            throw new NotImplementedException();
+            return DataBaseEF.updatingDB.updateAddress(var);
         }
 
-        public bool updateCart(Cart var)
+        public Cart updateCart(Cart var)
         {
-            throw new NotImplementedException();
+            return DataBaseEF.updatingDB.updateCart(var);
         }
 
-        public bool updateFamily(Family var)
+        public Family updateFamily(Family var)
         {
-            throw new NotImplementedException();
+            return DataBaseEF.updatingDB.updateFamily(var);
         }
 
-        public bool updateProduct(Product var)
+        public Product updateProduct(Product var)
         {
-            throw new NotImplementedException();
+            return DataBaseEF.updatingDB.updateProduct(var);
         }
 
-        public bool updateProductInCart(ProductInCart var)
+        public ProductInCart updateProductInCart(ProductInCart var)
         {
-            throw new NotImplementedException();
+            return DataBaseEF.updatingDB.updateProductInCart(var);
         }
 
-        public bool updateQRcode(QRcode var)
+        public QRcode updateQRcode(QRcode var)
         {
-            throw new NotImplementedException();
+            return DataBaseEF.updatingDB.updateQRcode(var);
         }
 
-        public bool updateStore(Store var)
+        public Store updateStore(Store var)
         {
-            throw new NotImplementedException();
+            return DataBaseEF.updatingDB.updateStore(var);
         }
     }
 }
