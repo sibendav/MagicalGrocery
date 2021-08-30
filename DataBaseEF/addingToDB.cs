@@ -106,7 +106,7 @@ namespace DataBaseEF
             {
                 using (var ctx = new MyGrocery())
                 {
-                    var qrCode = new QRcode() { location = var.location, QRcodePicDir = var.QRcodePicDir, time = var.time};
+                    var qrCode = new QRcode() {  QRcodePicDir = var.QRcodePicDir, time = DateTime.Now, QRcodeString=var.QRcodeString};
                     ctx.QRcodes.Add(qrCode);
                     ctx.SaveChanges();
                     return qrCode;
