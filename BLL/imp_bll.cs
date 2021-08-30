@@ -1,10 +1,11 @@
 ﻿using BE;
 using DAL;
+using Nest;
 using System;
 using System.Collections.Generic;
+using System.Device.Location;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Device.Location;
 
 namespace BLL
 {
@@ -45,6 +46,40 @@ namespace BLL
         public Store addStore(Store var)
         {
             return DALFactory.getDal().addStore(var);
+        }
+
+        public async void addToFirebase(string path)
+        {
+            string dir = await firebase.addToFirebaseAsync(path);
+            //while (dir == null) ;
+            string value = QRdecoder.showDetails(dir);
+            if(value!=null)
+            {
+                var allQR = returnAllQRcode();
+                QRcode towich;
+                if (allQR == null)
+                    towich = null;
+                else
+                {
+                    towich = (from i in allQR
+                              where i.QRcodeString == value
+                              select i).FirstOrDefault();
+                }
+                if (towich==null)
+                {
+                    QRcode qr = new QRcode();
+                    qr.QRcodePicDir=dir;
+                    qr.QRcodeString=value;
+
+                    //GeoCoordinateWatcher watcher = new GeoCoordinateWatcher(GeoPositionAccuracy.Default);
+                    //watcher.Start(); //started watcher
+                    //System.Device.Location.GeoCoordinate coord = watcher.Position.Location;
+                    //qr.location = coord;
+
+                    addQRcode(qr);
+                    //adding the new product
+                }
+            }
         }
 
         public bool deleteAddress(Address var)

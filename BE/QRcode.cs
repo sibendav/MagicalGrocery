@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using Nest;
 using System.ComponentModel.DataAnnotations;
+using Google.Apis.YouTube.v3.Data;
 
 namespace BE
 {
@@ -19,7 +20,7 @@ namespace BE
         //    set { Qrcode = value; }
         //}
         //private GeoCoordinate Location;
-        public GeoCoordinate location { get; set; }
+        //public GeoPoint location { get; set; }
         //{
         //    get { return Location; }
         //    set { Location = value; }
@@ -36,5 +37,6 @@ namespace BE
         //    get { return qRcodePicDir; }
         //    set { qRcodePicDir = value; }
         //}
+        public String QRcodeString { get; set; }
     }
 }

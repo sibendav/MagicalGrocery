@@ -1,6 +1,7 @@
 ﻿using BE;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -99,8 +100,9 @@ namespace DataBaseEF
             {
                 using (var ctx = new MyGrocery())
                 {
-                    var item = (from i in ctx.QRcodes
-                                select i).ToList<QRcode>();
+                    if (ctx.QRcodes == null)
+                        return null;
+                    var item = (from r in ctx.QRcodes select r).ToList<QRcode>();
                     return item;
                 }
             }
