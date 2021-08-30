@@ -14,6 +14,7 @@ namespace DataBaseEF
         public MyGrocery() : base("MyGrocery")
         {
             Database.SetInitializer<MyGrocery>(new CreateDatabaseIfNotExists<MyGrocery>());
+            //Database.SetInitializer<MyGrocery>(new DropCreateDatabaseIfModelChanges<MyGrocery>());
         }
 
         public DbSet<Family> Families { get; set; }
