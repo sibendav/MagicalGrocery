@@ -3,13 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MagicalGrocery"
+        xmlns:local="clr-namespace:MagicalGrocery" xmlns:local1="clr-namespace:MagicalGrocery.controls"
         mc:Ignorable="d"
         Title="MainWindow"
         WindowState="Maximized"
         Name="mainWin">
     <Grid>
-        <local:BasicTitle x:Name="topWin" VerticalAlignment="Top"></local:BasicTitle>
-        <local:ButtonTitles VerticalAlignment="Bottom" ></local:ButtonTitles>
+        <local1:mainUC x:Name="topWin" ></local1:mainUC>
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
 ﻿using DevExpress.Utils.CommonDialogs.Internal;
+using MagicalGrocery.ViewModel;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -22,29 +23,20 @@ namespace MagicalGrocery.controls
     /// </summary>
     public partial class currentShop : UserControl
     {
+        private productsVM currentVM;
+
         public currentShop()
         {
             InitializeComponent();
+            currentVM = new productsVM();
+            this.DataContext = currentVM;
+
             //for (int i = 0; i < 3; i++)
             //{
             //    listbox.Items.Add(new miniShopForListBox());
             //}
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-
-            openFileDialog1.InitialDirectory = @"C:\Users\simha\source\repos\MagicalGrocery\MagicalGrocery\images";
-            openFileDialog1.Filter = "Document Files|*.txt|Pictures Files|*.jpeg;*.jpg;*.png|All Files(*.*)|*.*"; ;
-            openFileDialog1.FilterIndex = 2;
-            openFileDialog1.RestoreDirectory = true;
-
-            if (openFileDialog1.ShowDialog() == true)
-            {
-                var path = openFileDialog1.FileName;
-                BLL.BLFactory.getBL().addToFirebase(path);
-            }
-        }
+        
     }
 }

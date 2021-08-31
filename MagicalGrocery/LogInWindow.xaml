@@ -7,16 +7,9 @@
         mc:Ignorable="d"
         Title="LogInWindow"
         WindowState="Maximized">
-    <Grid>
-        <local1:UserTitle VerticalAlignment="Top"></local1:UserTitle>
-        <Grid Background="Beige" Margin="-2,91,-0.4,347.6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Button Content="המלצות" Height="33" Margin="152,10,543,0" VerticalAlignment="Top" Width="69" Click="Button_Click_3"/>
-            <Button Content="סטטיסטיקות" Height="33" Margin="319,16,376,0" VerticalAlignment="Top" Width="69" Click="Button_Click_2"/>
-            <Button Content="היסטורית הקניות" Height="33" Margin="462,10,233,0" VerticalAlignment="Top" Width="69" Click="Button_Click_1"/>
-            <Button Content="לאיזור האישי" Height="33" Margin="576,16,119,0" VerticalAlignment="Top" Width="69" Click="Button_Click" RenderTransformOrigin="0.501,0.5"/>
-            <Button Content="לקניה חדשה" Height="33" Margin="34,16,661,0" VerticalAlignment="Top" Width="69" Click="Button_Click_4"/>
-        </Grid>
-        <Grid x:Name="mainGrid" Background="AntiqueWhite" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,158,-0.4,94.6"/>
-        <local:ButtonTitles VerticalAlignment="Bottom" Margin="0,0,-0.4,0" />
+    <Window.Background>
+        <ImageBrush Opacity="0.85" ImageSource="/Images/shoppingCart.png" />
+    </Window.Background>
+    <Grid x:Name="myGrid">
     </Grid>
 </Window>

@@ -124,7 +124,7 @@ namespace DataBaseEF
             {
                 using (var ctx = new MyGrocery())
                 {
-                    var store = new Store() { storeName = var.storeName, storeAddressId = var.storeAddressId};
+                    var store = new Store() {  storeName = var.storeName, storeAddressId = var.storeAddressId};
                     ctx.Stores.Add(store);
                     ctx.SaveChanges();
                     return store;

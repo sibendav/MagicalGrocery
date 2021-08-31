@@ -214,12 +214,18 @@
     </ApplicationDefinition>
     <Compile Include="commands\AddItemCommand.cs" />
     <Compile Include="commands\AddNewUser.cs" />
+    <Compile Include="commands\addProductToDB.cs" />
+    <Compile Include="commands\addUC.cs" />
     <Compile Include="commands\dispossUser.cs" />
-    <Compile Include="Converters\newUserConverter.cs" />
-    <Compile Include="Converters\UserPassConverter.cs" />
+    <Compile Include="controls\mainUC.xaml.cs">
+      <DependentUpon>mainUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\MultiConverter.cs" />
     <Compile Include="ViewModel\EnterUserVM.cs" />
     <Compile Include="ViewModel\MainWinVM.cs" />
+    <Compile Include="ViewModel\productsVM.cs" />
     <Compile Include="ViewModel\resignVM.cs" />
+    <Compile Include="ViewModel\swichUCVM.cs" />
     <Compile Include="ViewModel\userTitleVM.cs" />
     <Page Include="controls\allShoppings.xaml">
       <SubType>Designer</SubType>
@@ -238,6 +244,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="controls\EnterUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\mainUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -366,6 +376,12 @@
       <Project>{287C349F-03AC-47DD-8273-7E13D65F7C06}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\shoppingCart.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

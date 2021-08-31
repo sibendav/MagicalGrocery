@@ -6,7 +6,10 @@
     <Application.Resources>
         <Style TargetType="Window">
             <Setter Property="WindowState" Value="Maximized"></Setter>
+            <Setter Property="Background" Value="Maximized"></Setter> 
+            <Setter Property="Background" Value="Maximized"></Setter> 
         </Style>
+        
         <Style TargetType="Label">
             <Setter Property="FlowDirection" Value="RightToLeft"></Setter>
         </Style>

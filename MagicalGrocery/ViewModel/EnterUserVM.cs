@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace MagicalGrocery.ViewModel
@@ -23,10 +24,23 @@ namespace MagicalGrocery.ViewModel
 
         private void CheckUser_checkInUser(string arg1, string arg2)
         {
-            // TODO
             //Checking if the password is ok
-            LogInWindow f = new LogInWindow(arg1);
+            var user = (from i in BLL.BLFactory.getBL().returnAllFamily()
+                        where i.familyName == arg1
+                        select i).FirstOrDefault();
+            if(user == null)
+            {
+                MessageBox.Show("המשתמש לא קיים במערכת! הירשם לשירות!");
+                return;
+            }
+            if(user.password != arg2)
+            {
+                MessageBox.Show("סיסמא לא תקינה!");
+                return;
+            }
+            LogInWindow f = new LogInWindow(user);
             f.Show();
+            System.Windows.Application.Current.Windows[0].Close();
         }
     }
 }

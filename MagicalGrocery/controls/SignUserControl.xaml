@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:Converter="clr-namespace:MagicalGrocery.Converters"
+             xmlns:Local="clr-namespace:MagicalGrocery.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
-        <Converter:newUserConverter x:Key="newUserConverter"/>
+        <Local:MultiConverter x:Key="multiConverter"/>
     </UserControl.Resources>
     <Grid>
         <Label  HorizontalAlignment="Center" Content="הרשמה"  Height="57" Margin="271,37,296,355.6" Width="233"/>
@@ -26,9 +26,9 @@
         <Label  HorizontalAlignment="Center" Content="כניסה" Margin="465,305,213,109.6" Width="122"/>
         <TextBox x:Name="floor" HorizontalAlignment="Left" Height="30" Margin="234,344,0,0" VerticalAlignment="Top" Width="206"/>
         <Label  HorizontalAlignment="Center" Content="קומה" Margin="467,345,211,69.6" Width="122"/>
-        <Button Command="{Binding addNewUserCommand}" Content="הרשמה" HorizontalAlignment="Left" Height="46" Margin="232,386,0,0" VerticalAlignment="Top" Width="355" Click="Button_Click">
+        <Button Command="{Binding addNewUserCommand}" Content="הרשמה" HorizontalAlignment="Left" Height="46" Margin="232,386,0,0" VerticalAlignment="Top" Width="355" >
             <Button.CommandParameter>
-                <MultiBinding Converter="{StaticResource ResourceKey=newUserConverter}">
+                <MultiBinding Converter="{StaticResource ResourceKey=multiConverter}">
                     <Binding Path="Text" ElementName="famName"/>
                     <Binding Path="Text" ElementName="pass"/>
                     <Binding Path="Text" ElementName="city"/>

@@ -48,10 +48,10 @@ namespace BLL
             return DALFactory.getDal().addStore(var);
         }
 
-        public async void addToFirebase(string path)
+        public async void addToFirebase(string path /*, int user, int cart*/)
         {
             string dir = await firebase.addToFirebaseAsync(path);
-            //while (dir == null) ;
+            
             string value = QRdecoder.showDetails(dir);
             if(value!=null)
             {
@@ -65,23 +65,24 @@ namespace BLL
                               where i.QRcodeString == value
                               select i).FirstOrDefault();
                 }
-                if (towich==null)
+                if (towich!=null)
                 {
                     QRcode qr = new QRcode();
                     qr.QRcodePicDir=dir;
                     qr.QRcodeString=value;
 
-                    //GeoCoordinateWatcher watcher = new GeoCoordinateWatcher(GeoPositionAccuracy.Default);
-                    //watcher.Start(); //started watcher
-                    //System.Device.Location.GeoCoordinate coord = watcher.Position.Location;
-                    //qr.location = coord;
+                    qr = addQRcode(qr);
 
-                    addQRcode(qr);
-                    //adding the new product
+                    var add = addAddress(new Address { city = "בני ברק", entery = "א", floor = 1, number = 12, street = "אהרונוביץ" });
+                    var sto = addStore(new Store { storeAddressId = add.addressId, storeName = "יש חסד" });
+                    var proVal = value.Split(',');
+                    Product pro = addProduct(new Product { productName = proVal[0], storeId = sto.storeId, productPrice = Convert.ToDouble(proVal[2]), productPercentOff = Convert.ToDouble(proVal[3]), productExpDate = Convert.ToDateTime("09/09/2021"), productAmount = Convert.ToInt32(proVal[5]), productPicDir = proVal[6], productStock = Convert.ToInt32(proVal[7]), category = BE.Enum.Categories.Drink });
+                    var ca = addCart(new Cart { familyId = 1 , paymentDate=DateTime.Now});
+                    addProductInCart(new ProductInCart { cartId = ca.cartId, productId = pro.productId, amount = 1, price= 1 * pro.productPrice, productQRcode=qr.qrcode });
                 }
             }
         }
-
+        
         public bool deleteAddress(Address var)
         {
             throw new NotImplementedException();

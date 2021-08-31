@@ -23,10 +23,10 @@ namespace BE
         //    get { return StoreName; }
         //    set { StoreName = value; }
         //}
-        [ForeignKey("store")]
+        [ForeignKey("address")]
         //private int StoreAddressId;
         public int storeAddressId { get; set; }
-        public virtual Store store { get; set; }
+        public virtual Address address { get; set; }
         //{
         //    get { return StoreAddressId; }
         //    set { StoreAddressId = value; }

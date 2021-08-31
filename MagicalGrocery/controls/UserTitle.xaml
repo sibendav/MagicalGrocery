@@ -8,8 +8,8 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Margin="0,0,0,332.6">
         <Image Source="C:\Users\simha\source\repos\MagicalGrocery\MagicalGrocery\images\icon.png" HorizontalAlignment="Left" Height="95" Margin="30,10,0,0" VerticalAlignment="Top" Width="337"/>
-        <Button Command="{Binding disCmd}" Content="התנתק" HorizontalAlignment="Right" Height="61" Margin="0,27,20,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Command="{Binding disCmd}" Content="התנתק" HorizontalAlignment="Right" Height="61" Margin="0,27,20,0" VerticalAlignment="Top" Width="75"/>
         <!--Button Content="איזור האישי" HorizontalAlignment="Right" Height="61" Margin="0,27,115,0" VerticalAlignment="Top" Width="75"/-->
-        <Label Content="שלום משפחת XXX" HorizontalAlignment="Right" Margin="0,45,155,0" VerticalAlignment="Top" Height="34" Width="137"/>
+        <Label Name="nameFam" Content="שלום משפחת " HorizontalAlignment="Right" Margin="0,45,155,0" VerticalAlignment="Top" Height="34" Width="137"/>
     </Grid>
 </UserControl>

@@ -7,6 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <local:UserTitle x:Name="title" VerticalAlignment="Top" Height="506" Margin="0,0,-0.4,-0.4"></local:UserTitle>
+        <Grid HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,96,-0.4,-0.4">
+            <Button x:Name="reco" Command="{Binding addSUC}" CommandParameter="{Binding ElementName=reco,Path=Name}" Content="המלצות" Height="33" Margin="59,250,53,0" VerticalAlignment="Top" Width="69" />
+            <Button x:Name="sta" Command="{Binding addSUC}" CommandParameter="{Binding ElementName=sta,Path=Name}" Content="סטטיסטיקות" Height="33" Margin="62,188,50,0" VerticalAlignment="Top" Width="69" />
+            <Button x:Name="his" Command="{Binding addSUC}" CommandParameter="{Binding ElementName=his,Path=Name}" Content="היסטורית הקניות" Height="33" Margin="60,129,52,0" VerticalAlignment="Top" Width="69"  RenderTransformOrigin="3.312,4.436"/>
+            <Button x:Name="profile" Command="{Binding addSUC}" CommandParameter="{Binding ElementName=profile,Path=Name}" Content="לאיזור האישי" Height="33" Margin="59,62,53,0" VerticalAlignment="Top" Width="69"  RenderTransformOrigin="0.501,0.5"/>
+            <Button x:Name="news" Command="{Binding addSUC}" CommandParameter="{Binding ElementName=news,Path=Name}" Content="לקניה חדשה" Height="33" Margin="63,304,49,0" VerticalAlignment="Top" Width="69" />
+        </Grid>
+        <Grid x:Name="mainGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,96,187.6,7.6"/>
     </Grid>
 </UserControl>

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace MagicalGrocery.commands
@@ -24,8 +25,7 @@ namespace MagicalGrocery.commands
         }
 
         public void Execute(object parameter)
-        {
-            
+        {            
             var values = (object[])parameter;
             
             Family newfam = new Family();
@@ -42,8 +42,7 @@ namespace MagicalGrocery.commands
             newadd.floor = Convert.ToInt32(values[6]);
 
             AddUser(newfam, newadd);
-            LogInWindow f = new LogInWindow(newfam.familyName);
-            f.Show();            
+            
         }
     }
 }
