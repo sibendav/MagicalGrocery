@@ -2,14 +2,49 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:MagicalGrocery"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              StartupUri="MainWindow.xaml">
-    <Application.Resources>
-        <Style TargetType="Window">
-            <Setter Property="WindowState" Value="Maximized"></Setter>
-        </Style>
-        <Style TargetType="Label">
-            <Setter Property="FlowDirection" Value="RightToLeft"></Setter>
-        </Style>
+    <Application.Resources>        
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="Button" BasedOn="{ StaticResource MaterialDesignRaisedDarkButton}">
+                <Setter Property="materialDesign:ButtonAssist.CornerRadius" Value="30"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="BorderBrush" Value="White"/> 
+                <Setter Property="materialDesign:ShadowAssist.ShadowDepth" Value="Depth0"/>
+                <Setter Property="Background" Value="#C68ECC"/>
+                <Setter Property="Foreground" Value="White"/>
+            </Style>
+            <Style TargetType="Window">
+                <Setter Property="WindowState" Value="Maximized"></Setter>
+                <Setter Property="Background" Value="Maximized"></Setter>
+            </Style>
+            <Style x:Key="roundedCornersBorder" TargetType="Border">
+                <Setter Property="CornerRadius" Value="20"/>
+                <Setter Property="BorderThickness" Value="6"/>
+                <Setter Property="Opacity" Value="0.7"/>
+                <Setter Property="Background" Value="WhiteSmoke"/>
+            </Style>
+            <Style x:Key="roundedCornersButtonTransparent" TargetType="Button" BasedOn="{ StaticResource MaterialDesignRaisedDarkButton}">
+                <Setter Property="materialDesign:ButtonAssist.CornerRadius" Value="20"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="materialDesign:ShadowAssist.ShadowDepth" Value="Depth0"/>
+                <Setter Property="Foreground" Value="Black"/>
+                <Setter Property="Background" Value="Transparent"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="FlowDirection" Value="RightToLeft"></Setter>
+                <Setter Property="Foreground" Value="#C68ECC"/>
+            </Style>
+            
+            
+        </ResourceDictionary>        
     </Application.Resources>
    
 </Application>

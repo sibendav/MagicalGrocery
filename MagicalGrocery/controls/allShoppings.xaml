@@ -7,11 +7,29 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <ListView x:Name="listbox" HorizontalAlignment="Left" Height="330" Margin="28,93,0,0" VerticalAlignment="Top" Width="742"/>
-        <Label Content="תאריך" HorizontalAlignment="Left" Margin="648,58,0,0" VerticalAlignment="Top" Height="30" Width="113"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding currentModel.carts}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="30" Padding="10" CornerRadius="20" BorderThickness="1.5" Background="#FFFDD6" BorderBrush="Black" Width="170" Height="180">
+                            <StackPanel>
+                                <TextBlock Text="{Binding paymentDate}" HorizontalAlignment="Center" FontWeight="DemiBold" FontSize="20" Padding="3"/>
+                                <TextBlock Text="{Binding sumToPay}" FontSize="13" HorizontalAlignment="Center" Padding="3"/>
+                                <TextBlock Text="{Binding sumToPay}" FontSize="13" HorizontalAlignment="Center" Padding="3"/>
+                                <Image Source="{Binding imagePath}" Width="80" Height="80"></Image>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+        <!--Label Content="תאריך" HorizontalAlignment="Left" Margin="648,58,0,0" VerticalAlignment="Top" Height="30" Width="113"/>
         <Label Content="חנות" HorizontalAlignment="Left" Margin="557,58,0,0" VerticalAlignment="Top" Height="30" Width="113"/>
         <Label Content="סך הכל" HorizontalAlignment="Left" Margin="449,58,0,0" VerticalAlignment="Top" Height="30" Width="113"/>
-        <Label Content="סטטוס" HorizontalAlignment="Left" Margin="341,58,0,0" VerticalAlignment="Top" Height="30" Width="113"/>
-
+        <Label Content="סטטוס" HorizontalAlignment="Left" Margin="341,58,0,0" VerticalAlignment="Top" Height="30" Width="113"/-->
     </Grid>
 </UserControl>

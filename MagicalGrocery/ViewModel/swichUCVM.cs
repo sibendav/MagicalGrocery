@@ -1,22 +1,24 @@
-﻿using MagicalGrocery.commands;
+﻿using BE;
+using MagicalGrocery.commands;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace MagicalGrocery.ViewModel
 {
-    public class userTitleVM : INotifyPropertyChanged
+    public class swichUCVM : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public dispossUser disCmd { get; set; }
+        public addUC addSUC { get; set; }
 
-        public userTitleVM()
+        public swichUCVM(Family fam, Grid gr)
         {
-            disCmd = new dispossUser();
+            addSUC = new addUC(fam, gr);
         }
     }
 }

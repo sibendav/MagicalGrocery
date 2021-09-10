@@ -52,7 +52,7 @@ namespace DataBaseEF
             {
                 using (var ctx = new MyGrocery())
                 {
-                    var cart = new Cart() { familyId = var.familyId, numOfProducts = var.numOfProducts, paymentDate = var.paymentDate, status = var.status, sumToPay = var.sumToPay };
+                    var cart = new Cart() { familyId = var.familyId, numOfProducts = var.numOfProducts, paymentDate = var.paymentDate, status = var.status, sumToPay = var.sumToPay, storeId = var.storeId };
                     ctx.Carts.Add(cart);
                     ctx.SaveChanges();
                     return cart;
@@ -124,7 +124,7 @@ namespace DataBaseEF
             {
                 using (var ctx = new MyGrocery())
                 {
-                    var store = new Store() { storeName = var.storeName, storeAddressId = var.storeAddressId};
+                    var store = new Store() {  storeName = var.storeName, storeAddressId = var.storeAddressId};
                     ctx.Stores.Add(store);
                     ctx.SaveChanges();
                     return store;

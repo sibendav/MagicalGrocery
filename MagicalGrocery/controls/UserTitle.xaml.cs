@@ -29,9 +29,6 @@ namespace MagicalGrocery.controls
             this.DataContext = currentVM;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Windows[0].Hide();           
-        }
+        
     }
 }

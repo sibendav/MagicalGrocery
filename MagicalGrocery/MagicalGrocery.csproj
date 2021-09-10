@@ -49,6 +49,12 @@
     <Reference Include="FireSharp.Serialization.JsonNet, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FireSharp.Serialization.JsonNet.1.1.0\lib\net45\FireSharp.Serialization.JsonNet.dll</HintPath>
     </Reference>
+    <Reference Include="MaterialDesignColors, Version=2.0.3.8, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.2.0.3-ci8\lib\net452\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=4.2.1.8, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.4.2.1-ci8\lib\net452\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
       <Private>True</Private>
@@ -214,12 +220,27 @@
     </ApplicationDefinition>
     <Compile Include="commands\AddItemCommand.cs" />
     <Compile Include="commands\AddNewUser.cs" />
+    <Compile Include="commands\addProductToDB.cs" />
+    <Compile Include="commands\addStore.cs" />
+    <Compile Include="commands\addUC.cs" />
     <Compile Include="commands\dispossUser.cs" />
-    <Compile Include="Converters\newUserConverter.cs" />
-    <Compile Include="Converters\UserPassConverter.cs" />
+    <Compile Include="commands\updateUserCommand.cs" />
+    <Compile Include="controls\mainUC.xaml.cs">
+      <DependentUpon>mainUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\storeUC.xaml.cs">
+      <DependentUpon>storeUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\MultiConverter.cs" />
+    <Compile Include="Model\CartModel.cs" />
+    <Compile Include="Model\profileModel.cs" />
     <Compile Include="ViewModel\EnterUserVM.cs" />
     <Compile Include="ViewModel\MainWinVM.cs" />
+    <Compile Include="ViewModel\productsVM.cs" />
+    <Compile Include="ViewModel\profileVM.cs" />
     <Compile Include="ViewModel\resignVM.cs" />
+    <Compile Include="ViewModel\StoreVM.cs" />
+    <Compile Include="ViewModel\swichUCVM.cs" />
     <Compile Include="ViewModel\userTitleVM.cs" />
     <Page Include="controls\allShoppings.xaml">
       <SubType>Designer</SubType>
@@ -238,6 +259,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="controls\EnterUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\mainUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -262,6 +287,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="controls\statistics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\storeUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -367,5 +396,27 @@
       <Name>BLL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\background1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\welcome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\login.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\MaterialDesignThemes.4.2.1-ci8\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.2.1-ci8\build\MaterialDesignThemes.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.4.2.1-ci8\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.4.2.1-ci8\build\MaterialDesignThemes.targets'))" />
+  </Target>
 </Project>

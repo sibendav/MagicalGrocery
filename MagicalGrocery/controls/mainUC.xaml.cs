@@ -1,7 +1,4 @@
-﻿using BE;
-using MagicalGrocery.commands;
-using MagicalGrocery.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,25 +16,13 @@ using System.Windows.Shapes;
 namespace MagicalGrocery.controls
 {
     /// <summary>
-    /// Interaction logic for menu.xaml
+    /// Interaction logic for mainUC.xaml
     /// </summary>
-    public partial class menu : UserControl
+    public partial class mainUC : UserControl
     {
-        public Family thisFamily;
-
-        public swichUCVM currentVM;
-
-        public menu(Family fam)
+        public mainUC()
         {
             InitializeComponent();
-            title.nameFam.Content += fam.familyName;
-            thisFamily = fam;
-
-            currentVM = new swichUCVM(fam, mainGrid);
-            this.DataContext = currentVM;
         }
-        
-
-       
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,12 @@ namespace DataBaseEF
         {
             Database.SetInitializer<MyGrocery>(new CreateDatabaseIfNotExists<MyGrocery>());
             //Database.SetInitializer<MyGrocery>(new DropCreateDatabaseIfModelChanges<MyGrocery>());
+
+        }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        { 
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }
 
         public DbSet<Family> Families { get; set; }

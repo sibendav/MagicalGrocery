@@ -28,8 +28,7 @@ namespace MagicalGrocery
         {
             InitializeComponent();
             currentVM = new MainWinVM();
-            this.DataContext = currentVM;
-            
+            this.DataContext = currentVM;            
         }
 
         

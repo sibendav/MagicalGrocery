@@ -30,9 +30,5 @@ namespace MagicalGrocery.controls
             this.DataContext = CurrentVm;
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Windows[0].Close();
-        }
     }
 }

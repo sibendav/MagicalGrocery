@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BE;
+using MagicalGrocery.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,14 +22,18 @@ namespace MagicalGrocery.controls
     /// </summary>
     public partial class allShoppings : UserControl
     {
-        int num = 3;
-        public allShoppings()
+        public profileVM CurrentVm { set; get; }
+        
+        public allShoppings(Family fam)
         {
             InitializeComponent();
-            for (int i=0; i < num; i++)
-            {
-                listbox.Items.Add(new miniShopForListBox());
-            }
+            CurrentVm = new profileVM(fam);
+            this.DataContext = CurrentVm;
+
+            //for (int i=0; i < 3; i++)
+            //{
+            //    listbox.Items.Add(new miniShopForListBox());
+            //}
         }
     }
 }

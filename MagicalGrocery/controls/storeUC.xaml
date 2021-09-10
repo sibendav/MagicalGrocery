@@ -1,39 +1,45 @@
-﻿<UserControl x:Class="MagicalGrocery.controls.profile"
+﻿<UserControl x:Class="MagicalGrocery.controls.storeUC"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
              xmlns:local="clr-namespace:MagicalGrocery.controls" xmlns:Local="clr-namespace:MagicalGrocery.Converters"
-             mc:Ignorable="d" d:DesignWidth="800" Height="600">
+             mc:Ignorable="d" 
+             d:DesignHeight="680" d:DesignWidth="800">
     <UserControl.Resources>
         <Local:MultiConverter x:Key="multiConverter"/>
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="4*"/>
-            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="6*"/>
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2.5*"/>
-            <RowDefinition Height="2.5*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/> 
+            <RowDefinition Height="1.5*"/> 
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="9*"/>
-            <RowDefinition Height="1.5*"/>
-            <RowDefinition Height="4.5*"/>
+            <RowDefinition Height="2.5*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" >
             <Image Stretch="Uniform"  Source="/Images/login.png" Margin="11,14,13.6,13"></Image>
         </Grid>
-        <Label Grid.Row="1" Grid.ColumnSpan="3" FontSize="50" FontWeight="Bold" HorizontalAlignment="Center" Content="פרופיל"/>
-        <Grid Grid.Row="2" Grid.Column="1">
+        <Label Grid.Row="1" Grid.ColumnSpan="3" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" Content="בחר חנות"/>
+        <ComboBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" Width="228" />
+        <Label Grid.Row="4" Grid.ColumnSpan="3" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" Content="הוסף חנות"/>
+
+        <Grid Grid.Row="5" Grid.Column="1">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*"/>
-                <RowDefinition Height="20"/>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="2*"/>
-                <RowDefinition Height="20"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
@@ -44,21 +50,22 @@
                         <ColumnDefinition Width="60*"/>
                         <ColumnDefinition Width="20*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox Text="{Binding currentModel.fam.familyName, Mode=TwoWay}" x:Name="famName" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
-                             HorizontalContentAlignment="Center"  materialDesign:HintAssist.Hint="שם משתמש"/>
+                    <TextBox x:Name="famName" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
+                             HorizontalContentAlignment="Center"  materialDesign:HintAssist.Hint="שם חנות"/>
                 </Grid>
             </Border>
-            <!--Border Grid.Row="1" Style="{StaticResource roundedCornersBorder}" >
+           
+            <Border Grid.Row="1" Style="{StaticResource roundedCornersBorder}" >
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="20*"/>
                         <ColumnDefinition Width="60*"/>
                         <ColumnDefinition Width="20*"/>
                     </Grid.ColumnDefinitions>
-                    <PasswordBox Password="{Binding currentModel.fam.password, Mode=TwoWay}" x:Name="pass" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
-                             HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="סיסמה"/>
+                    <TextBox x:Name="floor" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
+                             HorizontalContentAlignment="Center"  materialDesign:HintAssist.Hint="מספר טלפון"/>
                 </Grid>
-            </-->
+            </Border>
             <Border Grid.Row="2" Style="{StaticResource roundedCornersBorder}" >
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -66,33 +73,22 @@
                         <ColumnDefinition Width="60*"/>
                         <ColumnDefinition Width="20*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox Text="{Binding currentModel.add.floor, Mode=TwoWay}" x:Name="floor" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
-                             HorizontalContentAlignment="Center"  materialDesign:HintAssist.Hint="מספר טלפון"/>
-                </Grid>
-            </Border>
-            <Border Grid.Row="3" Style="{StaticResource roundedCornersBorder}" >
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="20*"/>
-                        <ColumnDefinition Width="60*"/>
-                        <ColumnDefinition Width="20*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBox Text="{Binding currentModel.add.entery, Mode=TwoWay}" x:Name="entery" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
+                    <TextBox  x:Name="entery" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
                              HorizontalContentAlignment="Center"  materialDesign:HintAssist.Hint="דואר אלקטרוני"/>
                 </Grid>
             </Border>
-            <Border Grid.Row="5" Style="{StaticResource roundedCornersBorder}" >
+            <Border Grid.Row="4" Style="{StaticResource roundedCornersBorder}" >
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="20*"/>
                         <ColumnDefinition Width="60*"/>
                         <ColumnDefinition Width="20*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox Text="{Binding currentModel.add.city, Mode=TwoWay}" x:Name="city" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
+                    <TextBox  x:Name="city" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
                              HorizontalContentAlignment="Center"  materialDesign:HintAssist.Hint="עיר"/>
                 </Grid>
             </Border>
-            <Grid Grid.Row="6">
+            <Grid Grid.Row="5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="2*"/>
@@ -104,7 +100,7 @@
                             <ColumnDefinition Width="60*"/>
                             <ColumnDefinition Width="20*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBox Text="{Binding currentModel.add.street, Mode=TwoWay}" x:Name="street" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
+                        <TextBox  x:Name="street" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
                              HorizontalContentAlignment="Center"  materialDesign:HintAssist.Hint="רחוב"/>
                     </Grid>
                 </Border>
@@ -115,20 +111,19 @@
                             <ColumnDefinition Width="60*"/>
                             <ColumnDefinition Width="20*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBox Text="{Binding currentModel.add.number, Mode=TwoWay}" x:Name="number" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
+                        <TextBox  x:Name="number" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
                              HorizontalContentAlignment="Center"  materialDesign:HintAssist.Hint="מספר"/>
                     </Grid>
                 </Border>
             </Grid>
-        </Grid>
-        <Grid Grid.Row="3" Grid.Column="1">
+        <Grid Grid.Row="6" Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="0.7*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="1" Command="{Binding updateUser}" Content="עדכון">
-                <!--Button.CommandParameter>
+                <Button Grid.Column="1" Command="{Binding AddStore}" Content="הוסף">
+                <Button.CommandParameter>
                     <MultiBinding Converter="{StaticResource ResourceKey=multiConverter}">
                         <Binding Path="Text" ElementName="famName"/>
                         <Binding Path="Text" ElementName="city"/>
@@ -137,10 +132,19 @@
                         <Binding Path="Text" ElementName="entry"/>
                         <Binding Path="Text" ElementName="floor"/>
                     </MultiBinding>
-                </Button.CommandParameter-->
+                </Button.CommandParameter>
             </Button>
 
         </Grid>
-
+            
+        </Grid>
+        <Grid Grid.Row="3" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" Content="המשך" Click="Button_Click"/>
+        </Grid>
     </Grid>
 </UserControl>

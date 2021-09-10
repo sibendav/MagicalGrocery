@@ -1,4 +1,5 @@
-﻿using MagicalGrocery.controls;
+﻿using BE;
+using MagicalGrocery.controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,54 +21,12 @@ namespace MagicalGrocery
     /// </summary>
     public partial class LogInWindow : Window
     {
-        public LogInWindow(string famName)
+        public LogInWindow(Family fam)
         {
             InitializeComponent();
+            myGrid.Children.Add(new menu(fam));
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            profile p = new profile();
-            p.HorizontalAlignment = HorizontalAlignment.Center;
-            p.VerticalAlignment = VerticalAlignment.Center;
-            mainGrid.Children.Clear();
-            mainGrid.Children.Add(p);
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            allShoppings p = new allShoppings();
-            p.HorizontalAlignment = HorizontalAlignment.Center;
-            p.VerticalAlignment = VerticalAlignment.Center;
-            mainGrid.Children.Clear();
-            mainGrid.Children.Add(p);
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            statistics p = new statistics();
-            p.HorizontalAlignment = HorizontalAlignment.Center;
-            p.VerticalAlignment = VerticalAlignment.Center;
-            mainGrid.Children.Clear();
-            mainGrid.Children.Add(p);
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            recommendation p = new recommendation();
-            p.HorizontalAlignment = HorizontalAlignment.Center;
-            p.VerticalAlignment = VerticalAlignment.Center;
-            mainGrid.Children.Clear();
-            mainGrid.Children.Add(p);
-        }
-
-        private void Button_Click_4(object sender, RoutedEventArgs e)
-        {
-            currentShop p = new currentShop();
-            p.HorizontalAlignment = HorizontalAlignment.Center;
-            p.VerticalAlignment = VerticalAlignment.Center;
-            mainGrid.Children.Clear();
-            mainGrid.Children.Add(p);
-        }
+        
     }
 }

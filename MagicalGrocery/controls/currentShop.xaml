@@ -6,9 +6,23 @@
              xmlns:local="clr-namespace:MagicalGrocery.controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <ListBox Name="listbox" HorizontalAlignment="Left" Height="300" Margin="104,106,0,0" VerticalAlignment="Top" Width="595"/>
-        <Button Content="הוסף מוצר" HorizontalAlignment="Left" Height="34" Margin="120,49,0,0" VerticalAlignment="Top" Width="124" Click="Button_Click"/>
-
+    <Grid x:Name="mainGrid">
+        <Grid  x:Name="secondGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="9*"/>
+            </Grid.RowDefinitions>
+            <ListBox Grid.Row="1" Name="listbox" />
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="2" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"  Name="storeName" Content="חנות"/>
+                <Button Grid.Column="0" Command="{Binding addProduct}" HorizontalAlignment="Center" CommandParameter="{Binding ElementName=listbox}" Content="הוסף מוצר"/>
+            </Grid>     
+        </Grid>
+        
     </Grid>
 </UserControl>

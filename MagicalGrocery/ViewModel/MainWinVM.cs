@@ -29,8 +29,8 @@ namespace MagicalGrocery.ViewModel
         private void AddCommand1_AddItem(Grid obj)
         {
             SignUserControl enterUser = new SignUserControl();
-            enterUser.HorizontalAlignment = HorizontalAlignment.Center;
-            enterUser.VerticalAlignment = VerticalAlignment.Center;
+            //enterUser.HorizontalAlignment = HorizontalAlignment.Center;
+            //enterUser.VerticalAlignment = VerticalAlignment.Center;
             obj.Children.Clear();
             obj.Children.Add(enterUser);
         }
@@ -38,8 +38,8 @@ namespace MagicalGrocery.ViewModel
         private void AddCommand_AddItem(Grid arg1)
         {
             EnterUserControl enterUser = new EnterUserControl();
-            enterUser.HorizontalAlignment = HorizontalAlignment.Center;
-            enterUser.VerticalAlignment = VerticalAlignment.Center;
+            //enterUser.HorizontalAlignment = HorizontalAlignment.Center;
+            //enterUser.VerticalAlignment = VerticalAlignment.Center;
             arg1.Children.Clear();
             arg1.Children.Add(enterUser);
         }
