@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BE;
+using MagicalGrocery.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,19 +22,16 @@ namespace MagicalGrocery.controls
     /// </summary>
     public partial class profile : UserControl
     {
-        public profile()
+        public profileVM CurrentVm { set; get; }
+
+        public profile(Family fam)
         {
             InitializeComponent();
+            CurrentVm = new profileVM(fam);
+            this.DataContext = CurrentVm;
+            
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (groupbox.IsEnabled == false)
-                groupbox.IsEnabled = true;
-            else
-                groupbox.IsEnabled = false;
-            //update the database
-
-        }
+        
     }
 }

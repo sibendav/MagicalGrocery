@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:MagicalGrocery.controls"
              mc:Ignorable="d" Height="114.386" Width="577.514">
     <Grid >
-        <Button Content="Button" HorizontalAlignment="Left" Height="39" Margin="26,31,0,0" VerticalAlignment="Top" Width="74"/>
+        <Button Content="Button" HorizontalAlignment="Left" Height="39" Margin="26,31,0,0" VerticalAlignment="Top" Width="81"/>
         <Label Content="Label" HorizontalAlignment="Left" Height="39" Margin="451,31,0,0" VerticalAlignment="Top" Width="76"/>
         <Label Content="Label" HorizontalAlignment="Left" Height="39" Margin="369,31,0,0" VerticalAlignment="Top" Width="76" RenderTransformOrigin="-0.653,0.546"/>
         <Label Content="Label" HorizontalAlignment="Left" Height="39" Margin="252,31,0,0" VerticalAlignment="Top" Width="76"/>

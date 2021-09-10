@@ -7,14 +7,30 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <local:UserTitle x:Name="title" VerticalAlignment="Top" Height="506" Margin="0,0,-0.4,-0.4"></local:UserTitle>
-        <Grid HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,96,-0.4,-0.4">
-            <Button x:Name="reco" Command="{Binding addSUC}" CommandParameter="{Binding ElementName=reco,Path=Name}" Content="המלצות" Height="33" Margin="59,250,53,0" VerticalAlignment="Top" Width="69" />
-            <Button x:Name="sta" Command="{Binding addSUC}" CommandParameter="{Binding ElementName=sta,Path=Name}" Content="סטטיסטיקות" Height="33" Margin="62,188,50,0" VerticalAlignment="Top" Width="69" />
-            <Button x:Name="his" Command="{Binding addSUC}" CommandParameter="{Binding ElementName=his,Path=Name}" Content="היסטורית הקניות" Height="33" Margin="60,129,52,0" VerticalAlignment="Top" Width="69"  RenderTransformOrigin="3.312,4.436"/>
-            <Button x:Name="profile" Command="{Binding addSUC}" CommandParameter="{Binding ElementName=profile,Path=Name}" Content="לאיזור האישי" Height="33" Margin="59,62,53,0" VerticalAlignment="Top" Width="69"  RenderTransformOrigin="0.501,0.5"/>
-            <Button x:Name="news" Command="{Binding addSUC}" CommandParameter="{Binding ElementName=news,Path=Name}" Content="לקניה חדשה" Height="33" Margin="63,304,49,0" VerticalAlignment="Top" Width="69" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <local:UserTitle Grid.Row="0" x:Name="title"></local:UserTitle>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="2" VerticalAlignment="Center">
+                <Button x:Name="reco" Command="{Binding addSUC}" CommandParameter="{Binding ElementName=reco,Path=Name}" Content="המלצות" Margin="11,171,11.6,171.4"  />
+                <Button x:Name="sta" Command="{Binding addSUC}" CommandParameter="{Binding ElementName=sta,Path=Name}" Content="סטטיסטיקות" Margin="11,243,11.6,99.4" />
+                <Button x:Name="his" Command="{Binding addSUC}" CommandParameter="{Binding ElementName=his,Path=Name}" Content="היסטורית הקניות" Margin="11,92,11.6,250.4" />
+                <Button x:Name="profile" Command="{Binding addSUC}" CommandParameter="{Binding ElementName=profile,Path=Name}" Content="לאיזור האישי" Margin="11,27,11.6,315.4" />
+                <Button x:Name="news" Command="{Binding addSUC}" CommandParameter="{Binding ElementName=news,Path=Name}" Content="לקניה חדשה" Margin="11,332,11.6,10.4" />
+            </Grid>
+            <Grid Grid.Column="1" x:Name="mainGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                <Grid.Background >
+                    <ImageBrush ImageSource="C:\Users\simha\source\repos\MagicalGrocery\MagicalGrocery\images\white.png" Opacity="0.45" />
+                </Grid.Background>
+            </Grid>
         </Grid>
-        <Grid x:Name="mainGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,96,187.6,7.6"/>
+
     </Grid>
 </UserControl>

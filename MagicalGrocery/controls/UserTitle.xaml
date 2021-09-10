@@ -6,10 +6,13 @@
              xmlns:local="clr-namespace:MagicalGrocery.controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Margin="0,0,0,332.6">
-        <Image Source="C:\Users\simha\source\repos\MagicalGrocery\MagicalGrocery\images\icon.png" HorizontalAlignment="Left" Height="95" Margin="30,10,0,0" VerticalAlignment="Top" Width="337"/>
-        <Button Command="{Binding disCmd}" Content="התנתק" HorizontalAlignment="Right" Height="61" Margin="0,27,20,0" VerticalAlignment="Top" Width="75"/>
-        <!--Button Content="איזור האישי" HorizontalAlignment="Right" Height="61" Margin="0,27,115,0" VerticalAlignment="Top" Width="75"/-->
-        <Label Name="nameFam" Content="שלום משפחת " HorizontalAlignment="Right" Margin="0,45,155,0" VerticalAlignment="Top" Height="34" Width="137"/>
+    <Grid  Background="#B96DC0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Button Grid.Column="2" Command="{Binding disCmd}" Content="התנתק"/>
+        <Label Grid.Column="1" Foreground="White" FontSize="30" FontWeight="DemiBold" VerticalContentAlignment="Center" Name="nameFam" Content="שלום משפחת " />
     </Grid>
 </UserControl>

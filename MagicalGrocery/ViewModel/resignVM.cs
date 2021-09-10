@@ -36,6 +36,7 @@ namespace MagicalGrocery.ViewModel
 
             // adding the Family
             obj = CurrentModel.AddFamily(obj);
+
             LogInWindow f = new LogInWindow(obj);
             f.Show();
             Application.Current.Windows[0].Close();

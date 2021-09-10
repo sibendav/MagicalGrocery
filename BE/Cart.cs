@@ -50,9 +50,9 @@ namespace BE
         //    set { Status = value; }
         //}
         //private int StoreId;
-        //[ForeignKey("store")]
-        //public int storeId { get; set; }
-        //public virtual Store store { get; set; }
+        [ForeignKey("store")]
+        public int storeId { get; set; }
+        public virtual Store store { get; set; }
         //{
         //    get { return StoreId; }
         //    set { StoreId = value; }

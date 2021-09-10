@@ -3,42 +3,146 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
              xmlns:Local="clr-namespace:MagicalGrocery.Converters"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="600" d:DesignWidth="800">
     <UserControl.Resources>
         <Local:MultiConverter x:Key="multiConverter"/>
     </UserControl.Resources>
     <Grid>
-        <Label  HorizontalAlignment="Center" Content="הרשמה"  Height="57" Margin="271,37,296,355.6" Width="233"/>
-        <Label  HorizontalAlignment="Center" Content="כתובת" Margin="463,157,215,262.6" Width="122"/>
-        <Label  HorizontalAlignment="Center" Content="שם משפחה" Margin="467,77,213,342.6" Width="120"/>
-        <TextBox x:Name="famName" HorizontalAlignment="Left" Height="30" Margin="232,77,0,0"   VerticalAlignment="Top" Width="206"/>
-        <TextBox x:Name="city" HorizontalAlignment="Left" Height="30" Margin="232,185,0,0"   VerticalAlignment="Top" Width="206"/>
-        <Label  HorizontalAlignment="Center" Content="סיסמה" Margin="465,119,213,295.6" Width="122"/>
-        <TextBox x:Name="pass" HorizontalAlignment="Left" Height="30" Margin="232,123,0,0"   VerticalAlignment="Top" Width="206"/>
-        <Label  HorizontalAlignment="Center" Content="עיר" Margin="465,186,213,228.6" Width="122"/>
-        <TextBox Name="street" HorizontalAlignment="Left" Height="30" Margin="232,225,0,0"  VerticalAlignment="Top" Width="206"/>
-        <Label  HorizontalAlignment="Center" Content="רחוב" Margin="465,224,213,190.6" Width="122"/>
-        <TextBox Name="number" HorizontalAlignment="Left" Height="30" Margin="232,265,0,0" VerticalAlignment="Top" Width="206"/>
-        <Label  HorizontalAlignment="Center" Content="מספר" Margin="465,266,213,148.6" Width="122"/>
-        <TextBox x:Name="entry" HorizontalAlignment="Left" Height="30" Margin="232,304,0,0" VerticalAlignment="Top" Width="206"/>
-        <Label  HorizontalAlignment="Center" Content="כניסה" Margin="465,305,213,109.6" Width="122"/>
-        <TextBox x:Name="floor" HorizontalAlignment="Left" Height="30" Margin="234,344,0,0" VerticalAlignment="Top" Width="206"/>
-        <Label  HorizontalAlignment="Center" Content="קומה" Margin="467,345,211,69.6" Width="122"/>
-        <Button Command="{Binding addNewUserCommand}" Content="הרשמה" HorizontalAlignment="Left" Height="46" Margin="232,386,0,0" VerticalAlignment="Top" Width="355" >
-            <Button.CommandParameter>
-                <MultiBinding Converter="{StaticResource ResourceKey=multiConverter}">
-                    <Binding Path="Text" ElementName="famName"/>
-                    <Binding Path="Text" ElementName="pass"/>
-                    <Binding Path="Text" ElementName="city"/>
-                    <Binding Path="Text" ElementName="street"/>
-                    <Binding Path="Text" ElementName="number"/>
-                    <Binding Path="Text" ElementName="entry"/>
-                    <Binding Path="Text" ElementName="floor"/>
-                </MultiBinding>
-            </Button.CommandParameter>
-        </Button>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2.5*"/>
+            <RowDefinition Height="2.5*"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="4.5*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Image Stretch="Uniform"  Source="/Images/login.png" Margin="11,14,13.6,13"></Image>
+        </Grid>
+        <Label Grid.Row="1" Grid.ColumnSpan="3" FontSize="50" FontWeight="Bold" HorizontalAlignment="Center" Content="הרשמה"/>
+        <Grid Grid.Row="2" Grid.Column="1">
+                     
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Style="{StaticResource roundedCornersBorder}" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="60*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="famName" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
+                             HorizontalContentAlignment="Center"  materialDesign:HintAssist.Hint="שם משתמש"/>
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Style="{StaticResource roundedCornersBorder}" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="60*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+                    <PasswordBox x:Name="pass" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
+                             HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="סיסמה"/>
+                </Grid>
+            </Border>
+            <Border Grid.Row="2" Style="{StaticResource roundedCornersBorder}" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="60*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="floor" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
+                             HorizontalContentAlignment="Center"  materialDesign:HintAssist.Hint="מספר טלפון"/>
+                </Grid>
+            </Border>
+            <Border Grid.Row="3" Style="{StaticResource roundedCornersBorder}" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="60*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="entery" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
+                             HorizontalContentAlignment="Center"  materialDesign:HintAssist.Hint="דואר אלקטרוני"/>
+                </Grid>
+            </Border>
+            <Border Grid.Row="5" Style="{StaticResource roundedCornersBorder}" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="60*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="city" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
+                             HorizontalContentAlignment="Center"  materialDesign:HintAssist.Hint="עיר"/>
+                </Grid>
+            </Border>
+            <Grid Grid.Row="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="1" Style="{StaticResource roundedCornersBorder}" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="60*"/>
+                            <ColumnDefinition Width="20*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="street" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
+                             HorizontalContentAlignment="Center"  materialDesign:HintAssist.Hint="רחוב"/>
+                    </Grid>
+                </Border>
+                <Border  Grid.Column="0" Style="{StaticResource roundedCornersBorder}" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="60*"/>
+                            <ColumnDefinition Width="20*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="number" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
+                             HorizontalContentAlignment="Center"  materialDesign:HintAssist.Hint="מספר"/>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="3" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" Command="{Binding addNewUserCommand}" Content="הרשמה">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource ResourceKey=multiConverter}">
+                        <Binding Path="Text" ElementName="famName"/>
+                        <Binding ElementName="pass"/>
+                        <Binding Path="Text" ElementName="city"/>
+                        <Binding Path="Text" ElementName="street"/>
+                        <Binding Path="Text" ElementName="number"/>
+                        <Binding Path="Text" ElementName="entry"/>
+                        <Binding Path="Text" ElementName="floor"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
+
+        </Grid>
 
     </Grid>
 </UserControl>

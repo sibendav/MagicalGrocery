@@ -11,7 +11,11 @@
         <Calendar HorizontalAlignment="Left" Height="163" Margin="377,89,0,0" VerticalAlignment="Top" Width="192"/>
         <ComboBox HorizontalAlignment="Left" Height="45" Margin="124,89,0,0" VerticalAlignment="Top" Width="214"/>
         <ComboBox HorizontalAlignment="Left" Height="45" Margin="124,169,0,0" VerticalAlignment="Top" Width="214"/>
-        <Grid Background="Bisque" HorizontalAlignment="Left" Height="312" Margin="138,268,0,0" VerticalAlignment="Top" Width="553"/>
+        <Grid HorizontalAlignment="Left" Height="312" Margin="138,268,0,0" VerticalAlignment="Top" Width="553">
+            <Grid.Background >
+                <ImageBrush ImageSource="C:\Users\simha\source\repos\MagicalGrocery\MagicalGrocery\images\white.png" Opacity="0.45" />
+            </Grid.Background>
+        </Grid>
 
     </Grid>
 </UserControl>

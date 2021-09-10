@@ -1,4 +1,5 @@
-﻿using DevExpress.Utils.CommonDialogs.Internal;
+﻿using BE;
+using DevExpress.Utils.CommonDialogs.Internal;
 using MagicalGrocery.ViewModel;
 using Microsoft.Win32;
 using System;
@@ -24,8 +25,9 @@ namespace MagicalGrocery.controls
     public partial class currentShop : UserControl
     {
         private productsVM currentVM;
+        public Cart thisCart { set; get; }
 
-        public currentShop()
+        public currentShop(Cart currentCart)
         {
             InitializeComponent();
             currentVM = new productsVM();

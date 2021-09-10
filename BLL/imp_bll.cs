@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Device.Location;
 using System.Linq;
 using System.Device.Location;
+using System.Windows;
 
 namespace BLL
 {
@@ -65,20 +66,27 @@ namespace BLL
                               where i.QRcodeString == value
                               select i).FirstOrDefault();
                 }
-                if (towich!=null)
+                if (towich != null)
                 {
-                    QRcode qr = new QRcode();
-                    qr.QRcodePicDir=dir;
-                    qr.QRcodeString=value;
+                    try {
+                        QRcode qr = new QRcode();
+                        qr.QRcodePicDir = dir;
+                        qr.QRcodeString = value;
 
-                    qr = addQRcode(qr);
+                        qr = addQRcode(qr);
 
-                    var add = addAddress(new Address { city = "בני ברק", entery = "א", floor = 1, number = 12, street = "אהרונוביץ" });
-                    var sto = addStore(new Store { storeAddressId = add.addressId, storeName = "יש חסד" });
-                    var proVal = value.Split(',');
-                    Product pro = addProduct(new Product { productName = proVal[0], storeId = sto.storeId, productPrice = Convert.ToDouble(proVal[2]), productPercentOff = Convert.ToDouble(proVal[3]), productExpDate = Convert.ToDateTime("09/09/2021"), productAmount = Convert.ToInt32(proVal[5]), productPicDir = proVal[6], productStock = Convert.ToInt32(proVal[7]), category = BE.Enum.Categories.Drink });
-                    var ca = addCart(new Cart { familyId = 1 , paymentDate=DateTime.Now});
-                    addProductInCart(new ProductInCart { cartId = ca.cartId, productId = pro.productId, amount = 1, price= 1 * pro.productPrice, productQRcode=qr.qrcode });
+                        var add = addAddress(new Address { city = "בני ברק", entery = "א", floor = 1, number = 12, street = "אהרונוביץ" });
+                        var sto = addStore(new Store { storeAddressId = add.addressId, storeName = "יש חסד" });
+                        var proVal = value.Split(',');
+                        Product pro = addProduct(new Product { productName = proVal[0], storeId = sto.storeId, productPrice = Convert.ToDouble(proVal[2]), productPercentOff = Convert.ToDouble(proVal[3]), productExpDate = Convert.ToDateTime("09/09/2021"), productAmount = Convert.ToInt32(proVal[5]), productPicDir = proVal[6], productStock = Convert.ToInt32(proVal[7]), category = BE.Enum.Categories.Drink });
+                        var ca = addCart(new Cart { familyId = 1, paymentDate = DateTime.Now , storeId = sto.storeId});
+                        addProductInCart(new ProductInCart { cartId = ca.cartId, productId = pro.productId, amount = 1, price = 1 * pro.productPrice, productQRcode = qr.qrcode });
+                        MessageBox.Show("המוצר התווסף בהצלחה");
+                    }
+                    catch 
+                    {
+                        MessageBox.Show("אירע שגיאה!");
+                    }
                 }
             }
         }

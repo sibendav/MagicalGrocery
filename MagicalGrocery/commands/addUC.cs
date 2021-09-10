@@ -38,17 +38,17 @@ namespace MagicalGrocery.commands
         {
             UserControl p = new UserControl();
             if ((string)parameter == "profile")
-                p = new profile();
+                p = new profile(thisFamily);
             if ((string)parameter == "his")
-                p = new allShoppings();
+                p = new allShoppings(thisFamily);
             if ((string)parameter == "sta")
                 p = new statistics();
             if ((string)parameter == "reco")
                 p = new recommendation();
             if ((string)parameter == "news")
-                p = new currentShop();
-            p.HorizontalAlignment = HorizontalAlignment.Right;
-            p.VerticalAlignment = VerticalAlignment.Center;
+                p = new storeUC(thisGrid, thisFamily);
+            //p.HorizontalAlignment = HorizontalAlignment.Center;
+            //p.VerticalAlignment = VerticalAlignment.Center;
             this.thisGrid.Children.Clear();
             this.thisGrid.Children.Add(p);
         }

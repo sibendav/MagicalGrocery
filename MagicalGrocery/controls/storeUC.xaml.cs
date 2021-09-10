@@ -18,22 +18,24 @@ using System.Windows.Shapes;
 namespace MagicalGrocery.controls
 {
     /// <summary>
-    /// Interaction logic for allShoppings.xaml
+    /// Interaction logic for storeUC.xaml
     /// </summary>
-    public partial class allShoppings : UserControl
+    public partial class storeUC : UserControl
     {
-        public profileVM CurrentVm { set; get; }
-        
-        public allShoppings(Family fam)
-        {
-            InitializeComponent();
-            CurrentVm = new profileVM(fam);
-            this.DataContext = CurrentVm;
+        public StoreVM thisVM { set; get; }
 
-            //for (int i=0; i < 3; i++)
-            //{
-            //    listbox.Items.Add(new miniShopForListBox());
-            //}
+        public storeUC(Grid gr, Family fam)
+        {
+            thisVM = new StoreVM(gr, fam);
+            this.DataContext = thisVM;
+            InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            currentShop c = new currentShop(thisVM.CurrentModel.ca);
+            thisVM.CurrentModel.thisGrid.Children.Clear();
+            thisVM.CurrentModel.thisGrid.Children.Add(c);
         }
     }
 }

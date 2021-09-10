@@ -8,7 +8,10 @@
         Title="MainWindow"
         WindowState="Maximized"
         Name="mainWin">
+    <Window.Background>
+        <ImageBrush ImageSource="/Images/background1.png" />
+    </Window.Background>
     <Grid>
-        <local1:mainUC x:Name="topWin" ></local1:mainUC>
+        <local1:mainUC x:Name="topWin" VerticalAlignment="Stretch" ></local1:mainUC>
     </Grid>
 </Window>

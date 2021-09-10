@@ -8,7 +8,7 @@
         Title="LogInWindow"
         WindowState="Maximized">
     <Window.Background>
-        <ImageBrush Opacity="0.85" ImageSource="/Images/shoppingCart.png" />
+        <ImageBrush  ImageSource="/Images/background1.png" />
     </Window.Background>
     <Grid x:Name="myGrid">
     </Grid>

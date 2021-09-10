@@ -6,10 +6,20 @@
              xmlns:local="clr-namespace:MagicalGrocery"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Margin="0,0,0,332.6">
-        <Image Source="C:\Users\simha\source\repos\MagicalGrocery\MagicalGrocery\images\icon.png" HorizontalAlignment="Left" Height="95" Margin="30,10,0,0" VerticalAlignment="Top" Width="337"/>
-        <Button Command="{Binding AddCommand}" CommandParameter="{Binding ElementName=mainGrid}" Content="כניסה" HorizontalAlignment="Right" Height="61" Margin="0,27,20,0" VerticalAlignment="Top" Width="75" />
-        <Button Command="{Binding AddCommand1}" CommandParameter="{Binding ElementName=mainGrid}" Content="הרשמה" HorizontalAlignment="Right" Height="61" Margin="0,27,115,0" VerticalAlignment="Top" Width="75"/>
-        <Grid x:Name="mainGrid" Background="AntiqueWhite" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,113,0,-339" />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#B96DC0">
+            <Button Command="{Binding AddCommand}" CommandParameter="{Binding ElementName=mainGrid}" Content="כניסה" HorizontalAlignment="Right" Height="61" Margin="0,27,30,0" VerticalAlignment="Top" Width="95" />
+            <Button Command="{Binding AddCommand1}" CommandParameter="{Binding ElementName=mainGrid}" Content="הרשמה" HorizontalAlignment="Right" Height="61" Margin="0,27,133,0" VerticalAlignment="Top" Width="95"/>
+        </Grid>
+
+        <Grid Grid.Row="1" x:Name="mainGrid" >
+            <Grid.Background >
+                <ImageBrush ImageSource="C:\Users\simha\source\repos\MagicalGrocery\MagicalGrocery\images\white.png" Opacity="0.45" />
+            </Grid.Background>
+        </Grid>
     </Grid>
 </UserControl>

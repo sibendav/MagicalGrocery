@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace MagicalGrocery.commands
@@ -30,7 +31,10 @@ namespace MagicalGrocery.commands
             
             Family newfam = new Family();
             newfam.familyName = values[0].ToString();
-            newfam.password = values[1].ToString();
+            
+            PasswordBox passwordBox = values[1] as PasswordBox;
+            newfam.password = passwordBox.Password;
+
             newfam.registrationDate = DateTime.Now;
             //newfam.carts = null;
 
