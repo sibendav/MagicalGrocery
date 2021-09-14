@@ -13,14 +13,14 @@
 
     <Grid x:Name="mainGrid" Margin="0,0,0,10">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="4*"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5"/>
-            <RowDefinition Height="3*"/>
-            <RowDefinition Height="4*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="8*"/>
             <RowDefinition Height="1"/>
         </Grid.RowDefinitions>
@@ -32,8 +32,8 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="2*"/>
+                <RowDefinition Height="1.5*"/>
                 <RowDefinition Height="2.5*"/>
-                <RowDefinition Height="2*"/>
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
             <Border Grid.Row="0" Style="{StaticResource roundedCornersBorder}" >
@@ -59,7 +59,7 @@
                                  HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="סיסמה"/>
                 </Grid>
             </Border>
-            <Grid Grid.Row="2">
+            <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="3*"/>
@@ -74,22 +74,22 @@
                 </Button.CommandParameter>
             </Button>
             </Grid>
-            <!--Grid Grid.Row="3">
+            <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.5*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
                 <Button Command="{Binding AddCommand}" CommandParameter="{Binding ElementName=mainGrid}" FontSize="15" Grid.Column="0" ToolTip="log" VerticalAlignment="Center" HorizontalAlignment="Center"
-                Style="{StaticResource roundedCornersButtonTransparent}">
-                    <TextBlock Text="הרשמה"/>
+                Style="{StaticResource roundedCornersButtonTransparent}" Click="Button_Click" >
+                    <Label Content="הרשמה"/>
                     <Button.Template>
                         <ControlTemplate TargetType="{x:Type Button}">
                             <ContentPresenter VerticalAlignment="Center"/>
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
-                <TextBlock FontSize="15" Text="עוד לא הצטרפתם אלינו?" FlowDirection="RightToLeft" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            </Grid-->
+                <Label FontSize="15" Content="עוד לא הצטרפתם אלינו?" FlowDirection="RightToLeft" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
 
         </Grid>
 

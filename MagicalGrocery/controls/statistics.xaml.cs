@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BE;
+using MagicalGrocery.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,17 @@ namespace MagicalGrocery.controls
     /// </summary>
     public partial class statistics : UserControl
     {
-        public statistics()
+        public statisticVM currentVM { get; set; }
+        public statistics(Family fam)
         {
             InitializeComponent();
+            this.currentVM = new statisticVM(fam);
+        }
+
+        private void store_Click(object sender, RoutedEventArgs e)
+        {
+            //statGrid.Children.Clear();
+            statGrid.Children.Add(new statByStore(currentVM.shoppingVMs));
         }
     }
 }

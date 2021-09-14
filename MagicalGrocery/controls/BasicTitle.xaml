@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MagicalGrocery"
+             xmlns:local="clr-namespace:MagicalGrocery" xmlns:Local="clr-namespace:MagicalGrocery.controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -13,13 +13,13 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Background="#B96DC0">
             <Button Command="{Binding AddCommand}" CommandParameter="{Binding ElementName=mainGrid}" Content="כניסה" HorizontalAlignment="Right" Height="61" Margin="0,27,30,0" VerticalAlignment="Top" Width="95" />
-            <Button Command="{Binding AddCommand1}" CommandParameter="{Binding ElementName=mainGrid}" Content="הרשמה" HorizontalAlignment="Right" Height="61" Margin="0,27,133,0" VerticalAlignment="Top" Width="95"/>
+            <!-- Button Command="{Binding AddCommand1}" CommandParameter="{Binding ElementName=mainGrid}" Content="הרשמה" HorizontalAlignment="Right" Height="61" Margin="0,27,133,0" VerticalAlignment="Top" Width="95"/-->
         </Grid>
 
         <Grid Grid.Row="1" x:Name="mainGrid" >
             <Grid.Background >
                 <ImageBrush ImageSource="C:\Users\simha\source\repos\MagicalGrocery\MagicalGrocery\images\white.png" Opacity="0.45" />
-            </Grid.Background>
+            </Grid.Background>            
         </Grid>
     </Grid>
 </UserControl>

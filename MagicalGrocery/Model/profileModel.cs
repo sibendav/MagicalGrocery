@@ -5,17 +5,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace MagicalGrocery.Model
 {
     public class profileModel
     {
+        public Grid thisGrid { set; get; }
         public Family fam { set; get; }
         public Address add { set; get; }
         public List<Cart> carts { set; get; }
 
-        public profileModel(Family family)
+        public profileModel(Family family, Grid gr)
         {
+            thisGrid = gr;
             this.fam = family;
             this.add = BLL.BLFactory.getBL().returnAddress(family.addressOfFamilyId);
             this.carts = BLL.BLFactory.getBL().returnAllOfFamilyCart(family.familyId);

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace MagicalGrocery.ViewModel
 {
@@ -21,11 +22,15 @@ namespace MagicalGrocery.ViewModel
 
         public ObservableCollection<Cart> CartVMs { get; set; }
 
-        public profileVM(Family fam)
+        public profileVM(Family fam, Grid gr)
         {
             updateUser = new updateUserCommand();
             updateUser.updateUser += UpdateUser_updateUser;
-            this.currentModel = new profileModel(fam);
+            this.currentModel = new profileModel(fam, gr);
+            foreach (Cart i in currentModel.carts)
+            {
+                i.store = BLL.BLFactory.getBL().returnStore(i.storeId);
+            }
             CartVMs = new ObservableCollection<Cart>(currentModel.carts);
         }
 

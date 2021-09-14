@@ -7,6 +7,10 @@ using System.Device.Location;
 using System.Linq;
 using System.Device.Location;
 using System.Windows;
+using System.Globalization;
+using static BE.Enum;
+using Enum = BE.Enum;
+using System.Threading.Tasks;
 
 namespace BLL
 {
@@ -49,7 +53,7 @@ namespace BLL
             return DALFactory.getDal().addStore(var);
         }
 
-        public async void addToFirebase(string path /*, int user, int cart*/)
+        public async Task addToFirebase(string path, Cart c /*, int user, int cart*/)
         {
             string dir = await firebase.addToFirebaseAsync(path);
             
@@ -66,7 +70,7 @@ namespace BLL
                               where i.QRcodeString == value
                               select i).FirstOrDefault();
                 }
-                if (towich != null)
+                if (towich == null)
                 {
                     try {
                         QRcode qr = new QRcode();
@@ -75,18 +79,74 @@ namespace BLL
 
                         qr = addQRcode(qr);
 
-                        var add = addAddress(new Address { city = "בני ברק", entery = "א", floor = 1, number = 12, street = "אהרונוביץ" });
-                        var sto = addStore(new Store { storeAddressId = add.addressId, storeName = "יש חסד" });
+                        
                         var proVal = value.Split(',');
-                        Product pro = addProduct(new Product { productName = proVal[0], storeId = sto.storeId, productPrice = Convert.ToDouble(proVal[2]), productPercentOff = Convert.ToDouble(proVal[3]), productExpDate = Convert.ToDateTime("09/09/2021"), productAmount = Convert.ToInt32(proVal[5]), productPicDir = proVal[6], productStock = Convert.ToInt32(proVal[7]), category = BE.Enum.Categories.Drink });
-                        var ca = addCart(new Cart { familyId = 1, paymentDate = DateTime.Now , storeId = sto.storeId});
-                        addProductInCart(new ProductInCart { cartId = ca.cartId, productId = pro.productId, amount = 1, price = 1 * pro.productPrice, productQRcode = qr.qrcode });
+                        CultureInfo cultures = new CultureInfo("en-US");
+                        string enumVal = proVal[8];
+                        BE.Enum.Categories cat = BE.Enum.Categories.Sale; ;
+                        if (enumVal == " Food")
+                            cat = BE.Enum.Categories.Food;
+                        if (enumVal == " Sale")
+                            cat = BE.Enum.Categories.Sale;
+                        if (enumVal == " Drink")
+                            cat = BE.Enum.Categories.Drink;
+                        if (enumVal == " Clean")
+                            cat = BE.Enum.Categories.Clean;
+                        if (enumVal == " Pharma")
+                            cat = BE.Enum.Categories.Pharma;
+                        if (enumVal == " Clothing")
+                            cat = BE.Enum.Categories.Clothing;
+                        if (enumVal == " Electronics")
+                            cat = BE.Enum.Categories.Electronics;
+                        //   Sale, Food, Drink, Clean, Pharma, Clothing, Electronics
+                        Product pro = addProduct(new Product
+                        {
+                            productName = proVal[0],
+                            storeId = c.storeId,
+                            productPrice = Convert.ToDouble(proVal[2]),
+                            productPercentOff = Convert.ToDouble(proVal[3]),
+                            productExpDate = Convert.ToDateTime(proVal[4], cultures),
+                            productAmount = Convert.ToInt32(proVal[5]),
+                            productPicDir = proVal[6],
+                            productStock = Convert.ToInt32(proVal[7]),
+                            category = cat
+                        }) ;
+                        if (pro == null)
+                            throw new Exception("פריט לא תקין");
+                        var proofcart = addProductInCart(new ProductInCart { cartId = c.cartId, productId = pro.productId, amount = 1, price = 1 * pro.productPrice, productQRcode = qr.qrcode });
+                        if (proofcart == null)
+                            throw new Exception("תקלת רשת");
+                        var allProductInThisCart = (from i in returnAllProductInCart()
+                                                    where i.cartId == c.cartId
+                                                    select i);
+                        c.numOfProducts = (from i in allProductInThisCart
+                                           select i).Count();
+                        c.sumToPay = (from i in allProductInThisCart
+                                      select i.price).Sum();
+                        var cart = updateCart(c);
                         MessageBox.Show("המוצר התווסף בהצלחה");
                     }
-                    catch 
+                    catch (Exception e)
                     {
-                        MessageBox.Show("אירע שגיאה!");
+                        MessageBox.Show("אירע שגיאה !  " + e.Message);
                     }
+                }
+                else if (towich != null)
+                {
+                    string proName = value.Split(',')[0];
+                    Product pro = (from p in returnAllProduct()
+                                   where p.productName == proName
+                                   select p).FirstOrDefault();
+                    var o = addProductInCart(new ProductInCart { cartId = c.cartId, productId = pro.productId, amount = 1, price = 1 * pro.productPrice, productQRcode = towich.qrcode });
+                    var allProductInThisCart = (from i in returnAllProductInCart()
+                                                where i.cartId == c.cartId
+                                                select i);
+                    c.numOfProducts = (from i in allProductInThisCart
+                                       select i).Count();
+                    c.sumToPay = (from i in allProductInThisCart                                  
+                                  select i.price).Sum();
+                    var cart = updateCart(c);
+                    MessageBox.Show("המוצר התווסף בהצלחה");
                 }
             }
         }

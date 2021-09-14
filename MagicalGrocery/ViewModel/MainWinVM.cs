@@ -37,7 +37,7 @@ namespace MagicalGrocery.ViewModel
 
         private void AddCommand_AddItem(Grid arg1)
         {
-            EnterUserControl enterUser = new EnterUserControl();
+            EnterUserControl enterUser = new EnterUserControl(arg1);
             //enterUser.HorizontalAlignment = HorizontalAlignment.Center;
             //enterUser.VerticalAlignment = VerticalAlignment.Center;
             arg1.Children.Clear();

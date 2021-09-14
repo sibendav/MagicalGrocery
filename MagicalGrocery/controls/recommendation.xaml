@@ -3,18 +3,40 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MagicalGrocery.controls"
+             xmlns:local="clr-namespace:MagicalGrocery.controls" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Button Content="הורד המלצות" HorizontalAlignment="Left" Height="59" Margin="274,358,0,0" VerticalAlignment="Top" Width="275"/>
-        <ListView x:Name="listbox" HorizontalAlignment="Left" Height="190" Margin="195,96,0,0" VerticalAlignment="Top" Width="391">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <materialDesign:PackIcon Kind="PlaylistStar" Foreground="#369BE2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="45" Height="45"/>
+            <Label Content="המלצות" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
+        </StackPanel>
+        <Button Grid.Row="2"  Content="הורד המלצות" Margin="20" Click="Button_Click"></Button>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <ItemsControl x:Name="thisReco" ItemsSource="{Binding ProductVMs}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="30" Padding="10" CornerRadius="20" BorderThickness="1.5" Background="#9CCEF2" BorderBrush="#B96DC0" Width="170" Height="180">
+                            <StackPanel>
+                                <TextBlock Text="{Binding productName}" HorizontalAlignment="Center" FontWeight="DemiBold" FontSize="20" Padding="3"/>
+                                <TextBlock Text="{Binding productPrice}" FontSize="13" HorizontalAlignment="Center" Padding="3"/>
+                                <Image Source="{Binding productPicDir}" Width="80" Height="80"></Image>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </ScrollViewer>
 
     </Grid>
 </UserControl>
