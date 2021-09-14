@@ -245,6 +245,7 @@
     <Compile Include="commands\addStore.cs" />
     <Compile Include="commands\addUC.cs" />
     <Compile Include="commands\dispossUser.cs" />
+    <Compile Include="commands\updateProduct.cs" />
     <Compile Include="commands\updateUserCommand.cs" />
     <Compile Include="controls\mainUC.xaml.cs">
       <DependentUpon>mainUC.xaml</DependentUpon>

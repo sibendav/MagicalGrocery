@@ -57,10 +57,8 @@
                     <Label Content="לקניה חדשה" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
                 </StackPanel>
             </Grid>
-            <Grid Grid.Column="1" x:Name="mainGrid" >
-                <Grid.Background >
-                    <ImageBrush ImageSource="C:\Users\simha\source\repos\MagicalGrocery\MagicalGrocery\images\white.png" Opacity="0.45" />
-                </Grid.Background>
+            <Grid x:Name="mainGrid" Grid.ColumnSpan="2" Margin="124,0,10.4,0.4" >
+                <Label Content="ברוכים הבאים!" FontSize="60" FontWeight="Bold"  HorizontalAlignment="Center" VerticalAlignment="Center"  ></Label>
             </Grid>
         </Grid>
 

@@ -27,7 +27,8 @@ namespace MagicalGrocery.controls
     public partial class currentShop : UserControl, INotifyPropertyChanged
     {
         public productsVM currentVM { set; get; }
-        
+        public Cart currentCart { get; set; }
+        public Grid currentgrid { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string name = null)
@@ -35,10 +36,10 @@ namespace MagicalGrocery.controls
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
-        public currentShop(Cart currentCart)
+        public currentShop(Cart currentCart, Grid gr)
         {
             InitializeComponent();
-            currentVM = new productsVM(currentCart);
+            currentVM = new productsVM(currentCart, gr);
             this.DataContext = currentVM;
             lblStore.Content = lblStore.Content + " " + currentVM.currentModel.sto.storeName;
             if (currentCart.status == true)
@@ -46,9 +47,18 @@ namespace MagicalGrocery.controls
                 btnFinish.Visibility = Visibility.Collapsed;
                 btnAdd.Visibility = Visibility.Collapsed;
             }
+            this.currentCart = currentCart;
+            this.currentgrid = gr;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            currentVM.currentModel.updateCart();
+            btnFinish.Visibility = Visibility.Collapsed;
+            btnAdd.Visibility = Visibility.Collapsed;
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
@@ -65,13 +75,8 @@ namespace MagicalGrocery.controls
                 BLL.BLFactory.getBL().updateProduct(upProd);
                 allProds.ItemsSource = currentVM.ProVMs;
             }
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            currentVM.currentModel.updateCart();
-            btnFinish.Visibility = Visibility.Collapsed;
-            btnAdd.Visibility = Visibility.Collapsed;
+            currentgrid.Children.Clear();
+            currentgrid.Children.Add(new currentShop(currentCart, currentgrid));
         }
     }
 }

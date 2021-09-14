@@ -1,4 +1,5 @@
 ﻿using BE;
+using MagicalGrocery.controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,10 +33,11 @@ namespace MagicalGrocery.Model
             thisGrid = gr;
             allStores = BLL.BLFactory.getBL().returnAllStore();
         }
-        public CartModel(Cart cart)
+        public CartModel(Cart cart, Grid gr)
         {
             ca = cart;
-            sto= BLL.BLFactory.getBL().returnStore(ca.storeId);
+            thisGrid = gr;
+            sto = BLL.BLFactory.getBL().returnStore(ca.storeId);
             fam= BLL.BLFactory.getBL().returnFamily(ca.familyId);
             allProduct = (from pro in BLL.BLFactory.getBL().returnAllProductInCart()
                           where pro.cartId==ca.cartId
@@ -46,12 +48,14 @@ namespace MagicalGrocery.Model
             return BLL.BLFactory.getBL().addStore(sto);
         }
 
-        public void addProduct(String path)
+        public async Task addProductAsync(String path)
         {
-            BLL.BLFactory.getBL().addToFirebase(path, ca);
+            await BLL.BLFactory.getBL().addToFirebase(path, ca);
             allProduct = (from pro in BLL.BLFactory.getBL().returnAllProductInCart()
                                        where pro.cartId == ca.cartId
                                        select BLL.BLFactory.getBL().returnProduct(pro.productId)).ToList<Product>();
+            thisGrid.Children.Clear();
+            thisGrid.Children.Add(new currentShop(ca, thisGrid));
         }
 
         public Cart addCart()

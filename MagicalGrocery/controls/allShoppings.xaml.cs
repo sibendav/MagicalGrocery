@@ -24,28 +24,27 @@ namespace MagicalGrocery.controls
     public partial class allShoppings : UserControl, INotifyPropertyChanged
     {
         public profileVM CurrentVm { set; get; }
-        
+        public Grid currentgrid { get; set; }
+
         public allShoppings(Family fam, Grid gr)
         {
             InitializeComponent();
             CurrentVm = new profileVM(fam, gr);
             this.DataContext = CurrentVm;
+            currentgrid = gr;
 
-            
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void allShops_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            currentShop c = new currentShop((Cart)allShops.SelectedItem);
+            currentShop c = new currentShop((Cart)allShops.SelectedItem, currentgrid);
             CurrentVm.currentModel.thisGrid.Children.Clear();
             CurrentVm.currentModel.thisGrid.Children.Add(c);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
     }
 }
