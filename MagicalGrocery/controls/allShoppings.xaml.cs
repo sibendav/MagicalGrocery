@@ -2,6 +2,7 @@
 using MagicalGrocery.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace MagicalGrocery.controls
     /// <summary>
     /// Interaction logic for allShoppings.xaml
     /// </summary>
-    public partial class allShoppings : UserControl
+    public partial class allShoppings : UserControl, INotifyPropertyChanged
     {
         public profileVM CurrentVm { set; get; }
         
@@ -32,6 +33,8 @@ namespace MagicalGrocery.controls
 
             
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         private void allShops_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

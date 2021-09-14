@@ -34,6 +34,7 @@ namespace MagicalGrocery.controls
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
+
         public currentShop(Cart currentCart)
         {
             InitializeComponent();
@@ -62,6 +63,7 @@ namespace MagicalGrocery.controls
                 var upProd = ((Product)allProds.SelectedItem);
                 upProd.productPicDir = path;
                 BLL.BLFactory.getBL().updateProduct(upProd);
+                allProds.ItemsSource = currentVM.ProVMs;
             }
         }
 

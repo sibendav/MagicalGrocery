@@ -15,11 +15,13 @@ namespace MagicalGrocery.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         public StatisticsModel currentModel { get; set; }
         public ObservableCollection<buyVM> shoppingVMs { get; set; }
+        public ObservableCollection<buyVM> CategoryVMs { get; set; }
 
         public statisticVM(Family fam)
         {
             this.currentModel = new StatisticsModel(fam);
             shoppingVMs = currentModel.GetBuyVM();
+            CategoryVMs = currentModel.GetCatVM();
         }
     }
 }

@@ -28,23 +28,11 @@ namespace MagicalGrocery
     public partial class statByStore : UserControl
     {
         public SeriesCollection PieChartSeriesCollection { get; set; }
-        public statByStore(ObservableCollection<buyVM> shoppingVMs)
+        public statByStore(SeriesCollection shoppingVMs)
         {
             InitializeComponent();         
-            lcvStore.Series = ConvertStoreToDictionary(shoppingVMs);
+            lcvStore.Series = shoppingVMs;
         }
-        public SeriesCollection ConvertStoreToDictionary(ObservableCollection<buyVM> shoppingVMs)
-        {
-            Dictionary<string, double> collection = new Dictionary<string, double>();
-
-            collection = shoppingVMs.ToDictionary(item => (item.storeName + " " + item.city).ToString(), item => item.price);
-            
-            SeriesCollection PieChartSeriesCollection = new SeriesCollection();
-            foreach (var pair in collection)
-            {
-                PieChartSeriesCollection.Add(new PieSeries { Title = $"{pair.Value} ({pair.Key})", Values = new ChartValues<double> { pair.Value }, DataLabels = true, Fill = (Brush)new BrushConverter().ConvertFrom(idGenerator.getColorID()) });
-            }
-            return PieChartSeriesCollection;
-        }
+        
     }
 }
