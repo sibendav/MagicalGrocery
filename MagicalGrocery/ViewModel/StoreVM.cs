@@ -17,12 +17,14 @@ namespace MagicalGrocery.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         public CartModel CurrentModel { get; set; }
         public addStore AddStore { get; set; }
+        public Grid currentgrid { get; set; }
 
         public StoreVM(Grid gr, Family fam)
         {
             AddStore = new addStore();
             AddStore.AddStoreToBD += AddStore_AddStoreToBD;
-            CurrentModel = new CartModel(gr, fam);            
+            CurrentModel = new CartModel(gr, fam);
+            currentgrid = gr;
         }
 
         private void AddStore_AddStoreToBD(BE.Store arg1, BE.Address arg2)
@@ -41,7 +43,7 @@ namespace MagicalGrocery.ViewModel
             Cart c = CurrentModel.addCart();
 
             //go to current shop UC
-            currentShop cu = new currentShop(CurrentModel.ca);
+            currentShop cu = new currentShop(CurrentModel.ca, currentgrid);
             CurrentModel.thisGrid.Children.Clear();
             CurrentModel.thisGrid.Children.Add(cu);
         }

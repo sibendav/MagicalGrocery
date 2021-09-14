@@ -54,7 +54,7 @@
                         <DataGridTemplateColumn Header="ערוך תמונה" Width="auto">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Background="Transparent" BorderThickness="0" Click="Button_Click">
+                                    <Button Background="Transparent" BorderThickness="0" Click="Button_Click_2" >
                                         <materialDesign:PackIcon Kind="Plus" Foreground="#369BE2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="25" Height="30"/>
                                     </Button>
                                 </DataTemplate>
@@ -70,7 +70,7 @@
                     <ColumnDefinition Width="4*"/>
                 </Grid.ColumnDefinitions>
                 <Label x:Name="lblStore" Grid.Column="1" FontWeight="Bold" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Top" Content="סל קניות של חנות"/>
-                <Button x:Name="btnAdd" BorderBrush="Transparent" Grid.Column="0" Command="{Binding addProduct}" Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Center" CommandParameter="{Binding ElementName=listbox}" >
+                <Button x:Name="btnAdd" BorderBrush="Transparent" Grid.Column="0" Command="{Binding addProduct}" Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Bottom" CommandParameter="{Binding ElementName=listbox}" >
                     <materialDesign:PackIcon Kind="Plus" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#369BE2" Width="45" Height="45"/>
                 </Button>
             </Grid>     

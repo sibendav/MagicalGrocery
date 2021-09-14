@@ -245,6 +245,7 @@
     <Compile Include="commands\addStore.cs" />
     <Compile Include="commands\addUC.cs" />
     <Compile Include="commands\dispossUser.cs" />
+    <Compile Include="commands\updateProduct.cs" />
     <Compile Include="commands\updateUserCommand.cs" />
     <Compile Include="controls\mainUC.xaml.cs">
       <DependentUpon>mainUC.xaml</DependentUpon>
@@ -295,7 +296,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="controls\miniShopForListBox.xaml">
+    <Page Include="controls\lineChart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -354,8 +355,8 @@
     <Compile Include="controls\menu.xaml.cs">
       <DependentUpon>menu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="controls\miniShopForListBox.xaml.cs">
-      <DependentUpon>miniShopForListBox.xaml</DependentUpon>
+    <Compile Include="controls\lineChart.xaml.cs">
+      <DependentUpon>lineChart.xaml</DependentUpon>
     </Compile>
     <Compile Include="controls\profile.xaml.cs">
       <DependentUpon>profile.xaml</DependentUpon>

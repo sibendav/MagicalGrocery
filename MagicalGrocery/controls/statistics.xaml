@@ -29,24 +29,24 @@
                 <RowDefinition Height="*"/>                
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0">
-                <Button x:Name="news" BorderBrush="Transparent" Background="Transparent" Height="55" Width="100" >
+                <Button x:Name="news" BorderBrush="Transparent" Background="Transparent" Height="55" Width="100" Click="news_Click" >
                     <materialDesign:PackIcon Kind="Dollar" Foreground="#369BE2"  Width="45" Height="45"/>
                 </Button>
                 <Label Content="הוצאות" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
             </StackPanel>
                 <StackPanel Grid.Row="1">
-                <Button x:Name="cat" BorderBrush="Transparent" Background="Transparent" Height="55" Width="100" >
+                <Button x:Name="cat" BorderBrush="Transparent" Background="Transparent" Height="55" Width="100" Click="cat_Click" >
                     <materialDesign:PackIcon Kind="CategoryOutline" Foreground="#369BE2"  Width="45" Height="45"/>
                 </Button>
                 <Label Content="קטגוריות" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
             </StackPanel>
-                <StackPanel Grid.Row="2">
+                <!--StackPanel Grid.Row="2">
                 <Button x:Name="pro" BorderBrush="Transparent" Background="Transparent" Height="55" Width="100" >
                     <materialDesign:PackIcon Kind="BottleCokeOutline" Foreground="#369BE2"  Width="45" Height="50"/>
                 </Button>
                 <Label Content="מוצרים" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
-            </StackPanel>
-                <StackPanel Grid.Row="3">
+            </-->
+                <StackPanel Grid.Row="2">
                 <Button x:Name="store" BorderBrush="Transparent" Background="Transparent" Height="55" Width="100" Click="store_Click" >
                     <materialDesign:PackIcon Kind="store" Foreground="#369BE2"  Width="45" Height="45"/>
                 </Button>

@@ -23,6 +23,7 @@ namespace MagicalGrocery.controls
     public partial class storeUC : UserControl
     {
         public StoreVM thisVM { set; get; }
+        public Grid currentgrid { get; set; }
 
         public storeUC(Grid gr, Family fam)
         {
@@ -30,7 +31,7 @@ namespace MagicalGrocery.controls
             thisVM = new StoreVM(gr, fam);
             this.DataContext = thisVM;
             coboStore.ItemsSource = thisVM.CurrentModel.allStores;
-            
+            currentgrid = gr;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -39,7 +40,7 @@ namespace MagicalGrocery.controls
             {
                 thisVM.CurrentModel.ca = new Cart() {paymentDate = DateTime.Now ,familyId=thisVM.CurrentModel.fam.familyId, storeId = ((Store)coboStore.SelectedItem).storeId };
                 thisVM.CurrentModel.addCart();
-                currentShop c = new currentShop(thisVM.CurrentModel.ca);
+                currentShop c = new currentShop(thisVM.CurrentModel.ca, currentgrid);
                 thisVM.CurrentModel.thisGrid.Children.Clear();
                 thisVM.CurrentModel.thisGrid.Children.Add(c);
             }
