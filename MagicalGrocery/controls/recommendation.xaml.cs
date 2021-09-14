@@ -1,5 +1,10 @@
-﻿using System;
+﻿using Accord.MachineLearning.Rules;
+using BE;
+using BLL;
+using MagicalGrocery.Model;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,13 +25,28 @@ namespace MagicalGrocery.controls
     /// </summary>
     public partial class recommendation : UserControl
     {
-        public recommendation()
+        public FamilyRecommendationModel currentModel { get; set; }
+        public ObservableCollection<Product> ProductVMs { get; set; }
+
+        public recommendation(Family fam)
         {
             InitializeComponent();
-            for (int i = 0; i < 3; i++)
-            {
-                listbox.Items.Add(new miniShopForListBox());
-            }
+            currentModel = new FamilyRecommendationModel(fam);
+            ProductVMs = new ObservableCollection<Product>(currentModel.familyProducts);
+            thisReco.ItemsSource = ProductVMs;
+            //this.DataContext = currentModel;
         }
+        
+        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            List<object[]> items = new List<object[]>();
+            foreach (Product item in ProductVMs)
+            {
+                items.Add(new object[] { item.productName, item.productPrice, item.productPicDir });
+            }
+            AprioriAlgorithm.CreatePDF(currentModel.familyProducts, currentModel.thisFamily);
+        }
+        
     }
 }

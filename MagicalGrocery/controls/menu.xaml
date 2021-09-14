@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MagicalGrocery.controls"
+             xmlns:local="clr-namespace:MagicalGrocery.controls" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -18,14 +18,46 @@
                 <ColumnDefinition Width="4*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="2" VerticalAlignment="Center">
-                <Button x:Name="reco" Command="{Binding addSUC}" CommandParameter="{Binding ElementName=reco,Path=Name}" Content="המלצות" Margin="11,171,11.6,171.4"  />
-                <Button x:Name="sta" Command="{Binding addSUC}" CommandParameter="{Binding ElementName=sta,Path=Name}" Content="סטטיסטיקות" Margin="11,243,11.6,99.4" />
-                <Button x:Name="his" Command="{Binding addSUC}" CommandParameter="{Binding ElementName=his,Path=Name}" Content="היסטורית הקניות" Margin="11,92,11.6,250.4" />
-                <Button x:Name="profile" Command="{Binding addSUC}" CommandParameter="{Binding ElementName=profile,Path=Name}" Content="לאיזור האישי" Margin="11,27,11.6,315.4" />
-                <Button x:Name="news" Command="{Binding addSUC}" CommandParameter="{Binding ElementName=news,Path=Name}" Content="לקניה חדשה" Margin="11,332,11.6,10.4" />
+            <Grid Grid.Column="2" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="3">
+                    <Button x:Name="reco" BorderBrush="Transparent" Background="Transparent" Command="{Binding addSUC}" CommandParameter="{Binding ElementName=reco,Path=Name}"  Height="55" Width="100">
+                        <materialDesign:PackIcon Kind="PlaylistStar" Foreground="#369BE2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="45" Height="45"/>
+                    </Button>
+                    <Label Content="המלצות" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Grid.Row="4">
+                    <Button x:Name="sta" BorderBrush="Transparent" Background="Transparent" Command="{Binding addSUC}" CommandParameter="{Binding ElementName=sta,Path=Name}" Height="55" Width="100" >
+                        <materialDesign:PackIcon Kind="ChartAreaspline" Foreground="#369BE2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="45" Height="45"/>
+                    </Button>
+                    <Label Content="סטטיסטיקות" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Grid.Row="2">
+                    <Button x:Name="his" BorderBrush="Transparent" Background="Transparent" Command="{Binding addSUC}" CommandParameter="{Binding ElementName=his,Path=Name}"  Height="55" Width="100">
+                        <materialDesign:PackIcon Kind="PlaylistTick" Foreground="#369BE2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="45" Height="45"/>
+                    </Button>
+                    <Label Content="היסטורית הקניות" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Grid.Row="0">
+                    <Button x:Name="profile" BorderBrush="Transparent" Background="Transparent" Command="{Binding addSUC}" CommandParameter="{Binding ElementName=profile,Path=Name}" Height="55" Width="100" >
+                        <materialDesign:PackIcon Kind="user" Foreground="#369BE2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="45" Height="45"/>
+                    </Button>
+                    <Label Content="לאיזור האישי" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1">
+                    <Button x:Name="news" BorderBrush="Transparent" Background="Transparent" Command="{Binding addSUC}" CommandParameter="{Binding ElementName=news,Path=Name}" Height="55" Width="100" >
+                        <materialDesign:PackIcon Kind="Cart" Foreground="#369BE2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="45" Height="45"/>
+                    </Button>
+                    <Label Content="לקניה חדשה" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
+                </StackPanel>
             </Grid>
-            <Grid Grid.Column="1" x:Name="mainGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+            <Grid Grid.Column="1" x:Name="mainGrid" >
                 <Grid.Background >
                     <ImageBrush ImageSource="C:\Users\simha\source\repos\MagicalGrocery\MagicalGrocery\images\white.png" Opacity="0.45" />
                 </Grid.Background>

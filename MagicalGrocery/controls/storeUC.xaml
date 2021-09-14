@@ -11,140 +11,158 @@
         <Local:MultiConverter x:Key="multiConverter"/>
     </UserControl.Resources>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="4*"/>
-            <ColumnDefinition Width="6*"/>
-            <ColumnDefinition Width="4*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/> 
-            <RowDefinition Height="1.5*"/> 
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="9*"/>
-            <RowDefinition Height="2.5*"/>
-        </Grid.RowDefinitions>
-        <Grid Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" >
-            <Image Stretch="Uniform"  Source="/Images/login.png" Margin="11,14,13.6,13"></Image>
-        </Grid>
-        <Label Grid.Row="1" Grid.ColumnSpan="3" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" Content="בחר חנות"/>
-        <ComboBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" Width="228" />
-        <Label Grid.Row="4" Grid.ColumnSpan="3" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" Content="הוסף חנות"/>
-
-        <Grid Grid.Row="5" Grid.Column="1">
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
-            </Grid.RowDefinitions>
-            <Border Grid.Row="0" Style="{StaticResource roundedCornersBorder}" >
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="20*"/>
-                        <ColumnDefinition Width="60*"/>
-                        <ColumnDefinition Width="20*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBox x:Name="famName" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
-                             HorizontalContentAlignment="Center"  materialDesign:HintAssist.Hint="שם חנות"/>
-                </Grid>
-            </Border>
-           
-            <Border Grid.Row="1" Style="{StaticResource roundedCornersBorder}" >
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="20*"/>
-                        <ColumnDefinition Width="60*"/>
-                        <ColumnDefinition Width="20*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBox x:Name="floor" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
-                             HorizontalContentAlignment="Center"  materialDesign:HintAssist.Hint="מספר טלפון"/>
-                </Grid>
-            </Border>
-            <Border Grid.Row="2" Style="{StaticResource roundedCornersBorder}" >
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="20*"/>
-                        <ColumnDefinition Width="60*"/>
-                        <ColumnDefinition Width="20*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBox  x:Name="entery" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
-                             HorizontalContentAlignment="Center"  materialDesign:HintAssist.Hint="דואר אלקטרוני"/>
-                </Grid>
-            </Border>
-            <Border Grid.Row="4" Style="{StaticResource roundedCornersBorder}" >
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="20*"/>
-                        <ColumnDefinition Width="60*"/>
-                        <ColumnDefinition Width="20*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBox  x:Name="city" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
-                             HorizontalContentAlignment="Center"  materialDesign:HintAssist.Hint="עיר"/>
-                </Grid>
-            </Border>
-            <Grid Grid.Row="5">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="2*"/>
-                </Grid.ColumnDefinitions>
-                <Border Grid.Column="1" Style="{StaticResource roundedCornersBorder}" >
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="20*"/>
-                            <ColumnDefinition Width="60*"/>
-                            <ColumnDefinition Width="20*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBox  x:Name="street" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
-                             HorizontalContentAlignment="Center"  materialDesign:HintAssist.Hint="רחוב"/>
-                    </Grid>
-                </Border>
-                <Border  Grid.Column="0" Style="{StaticResource roundedCornersBorder}" >
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="20*"/>
-                            <ColumnDefinition Width="60*"/>
-                            <ColumnDefinition Width="20*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBox  x:Name="number" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
-                             HorizontalContentAlignment="Center"  materialDesign:HintAssist.Hint="מספר"/>
-                    </Grid>
-                </Border>
-            </Grid>
-        <Grid Grid.Row="6" Grid.Column="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="0.7*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-                <Button Grid.Column="1" Command="{Binding AddStore}" Content="הוסף">
-                <Button.CommandParameter>
-                    <MultiBinding Converter="{StaticResource ResourceKey=multiConverter}">
-                        <Binding Path="Text" ElementName="famName"/>
-                        <Binding Path="Text" ElementName="city"/>
-                        <Binding Path="Text" ElementName="street"/>
-                        <Binding Path="Text" ElementName="number"/>
-                        <Binding Path="Text" ElementName="entry"/>
-                        <Binding Path="Text" ElementName="floor"/>
-                    </MultiBinding>
-                </Button.CommandParameter>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="15*"/>            
+        </Grid.RowDefinitions> 
+        <Grid Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <!--Image Stretch="Uniform"  Source="/Images/login.png" Margin="11,14,13.6,13"></-->
+            <Button Grid.Row="1" Background="Transparent" BorderThickness="0">
+                <materialDesign:PackIcon Kind="Store" Foreground="#369BE2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="35" Height="35"/>
             </Button>
-
         </Grid>
-            
-        </Grid>
-        <Grid Grid.Row="3" Grid.Column="1">
+        <Label Grid.Row="1" HorizontalAlignment="Center" Content="או" FontSize="30"/>
+        <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1.5*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="1" Content="המשך" Click="Button_Click"/>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.5*"/>
+                    <RowDefinition Height="1.5*"/>
+                    <RowDefinition Height="1.5*"/>
+                    <RowDefinition Height="15*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.ColumnSpan="3" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" Content="בחר חנות"/>
+                <ComboBox Name="coboStore" DisplayMemberPath="storeName" FlowDirection="RightToLeft" ItemsSource="{Binding thisVM.CurrentModel.allStores}"  Grid.Row="1" HorizontalAlignment="Center" Width="228" />
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="1" Content="המשך" Click="Button_Click"/>
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.5*"/>
+                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="4*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.ColumnSpan="3" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" Content="הוסף חנות"/>
+
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Style="{StaticResource roundedCornersBorder}" >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20*"/>
+                                <ColumnDefinition Width="60*"/>
+                                <ColumnDefinition Width="20*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox x:Name="famName" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
+                             HorizontalContentAlignment="Center"  materialDesign:HintAssist.Hint="שם חנות"/>
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Row="1" Style="{StaticResource roundedCornersBorder}" >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20*"/>
+                                <ColumnDefinition Width="60*"/>
+                                <ColumnDefinition Width="20*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox x:Name="floor" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
+                             HorizontalContentAlignment="Center"  materialDesign:HintAssist.Hint="מספר טלפון"/>
+                        </Grid>
+                    </Border>
+                    <Border Grid.Row="2" Style="{StaticResource roundedCornersBorder}" >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20*"/>
+                                <ColumnDefinition Width="60*"/>
+                                <ColumnDefinition Width="20*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox  x:Name="entery" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
+                             HorizontalContentAlignment="Center"  materialDesign:HintAssist.Hint="דואר אלקטרוני"/>
+                        </Grid>
+                    </Border>
+                    <Border Grid.Row="3" Style="{StaticResource roundedCornersBorder}" >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20*"/>
+                                <ColumnDefinition Width="60*"/>
+                                <ColumnDefinition Width="20*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox  x:Name="city" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
+                             HorizontalContentAlignment="Center"  materialDesign:HintAssist.Hint="עיר"/>
+                        </Grid>
+                    </Border>
+                    <Grid Grid.Row="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="1" Style="{StaticResource roundedCornersBorder}" >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20*"/>
+                                    <ColumnDefinition Width="60*"/>
+                                    <ColumnDefinition Width="20*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox  x:Name="street" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
+                             HorizontalContentAlignment="Center"  materialDesign:HintAssist.Hint="רחוב"/>
+                            </Grid>
+                        </Border>
+                        <Border  Grid.Column="0" Style="{StaticResource roundedCornersBorder}" >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20*"/>
+                                    <ColumnDefinition Width="60*"/>
+                                    <ColumnDefinition Width="20*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox  x:Name="number" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="20"
+                             HorizontalContentAlignment="Center"  materialDesign:HintAssist.Hint="מספר"/>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                    <Grid Grid.Row="5" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="1" Command="{Binding AddStore}" Content="הוסף והמשך">
+                            <Button.CommandParameter>
+                                <MultiBinding Converter="{StaticResource ResourceKey=multiConverter}">
+                                    <Binding Path="Text" ElementName="famName"/>
+                                    <Binding Path="Text" ElementName="city"/>
+                                    <Binding Path="Text" ElementName="street"/>
+                                    <Binding Path="Text" ElementName="number"/>
+                                    <Binding Path="Text" ElementName="entry"/>
+                                    <Binding Path="Text" ElementName="floor"/>
+                                </MultiBinding>
+                            </Button.CommandParameter>
+                        </Button>
+
+                    </Grid>
+
+                </Grid>
+                
+            </Grid>
+
         </Grid>
+        
     </Grid>
 </UserControl>

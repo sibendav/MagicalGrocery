@@ -24,10 +24,10 @@ namespace MagicalGrocery.controls
     {
         public profileVM CurrentVm { set; get; }
 
-        public profile(Family fam)
+        public profile(Family fam, Grid gr)
         {
             InitializeComponent();
-            CurrentVm = new profileVM(fam);
+            CurrentVm = new profileVM(fam, gr);
             this.DataContext = CurrentVm;
             
         }

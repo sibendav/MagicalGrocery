@@ -24,7 +24,7 @@
             <RowDefinition Height="4.5*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" >
-            <Image Stretch="Uniform"  Source="/Images/login.png" Margin="11,14,13.6,13"></Image>
+            <materialDesign:PackIcon Kind="UserAddOutline" Foreground="#369BE2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="45" Height="45"/>
         </Grid>
         <Label Grid.Row="1" Grid.ColumnSpan="3" FontSize="50" FontWeight="Bold" HorizontalAlignment="Center" Content="הרשמה"/>
         <Grid Grid.Row="2" Grid.Column="1">

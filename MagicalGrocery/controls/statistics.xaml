@@ -3,19 +3,57 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MagicalGrocery.controls"
-             mc:Ignorable="d" d:DesignWidth="800" Height="609.637">
-    <Grid Margin="0,0,0,-0.4">
-        <Label Content="פילטרים" HorizontalAlignment="Left" Margin="312,33,0,0" VerticalAlignment="Top" Height="56" Width="140"/>
-        <Calendar HorizontalAlignment="Left" Height="163" Margin="574,89,0,0" VerticalAlignment="Top" Width="177"/>
-        <Calendar HorizontalAlignment="Left" Height="163" Margin="377,89,0,0" VerticalAlignment="Top" Width="192"/>
-        <ComboBox HorizontalAlignment="Left" Height="45" Margin="124,89,0,0" VerticalAlignment="Top" Width="214"/>
-        <ComboBox HorizontalAlignment="Left" Height="45" Margin="124,169,0,0" VerticalAlignment="Top" Width="214"/>
-        <Grid HorizontalAlignment="Left" Height="312" Margin="138,268,0,0" VerticalAlignment="Top" Width="553">
-            <Grid.Background >
-                <ImageBrush ImageSource="C:\Users\simha\source\repos\MagicalGrocery\MagicalGrocery\images\white.png" Opacity="0.45" />
-            </Grid.Background>
+             xmlns:local="clr-namespace:MagicalGrocery.controls" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" d:DesignHeight="450" d:DesignWidth="800">
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">            
+        <materialDesign:PackIcon  Kind="ChartAreaspline" Foreground="#369BE2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="45" Height="45"/>
+        <Label Content="סטטיסטיקות" FontWeight="Bold" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="9*"/>
+                <ColumnDefinition Width="2*"/>                
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="statGrid" Margin="20" Grid.Column="0"/>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>                
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0">
+                <Button x:Name="news" BorderBrush="Transparent" Background="Transparent" Height="55" Width="100" >
+                    <materialDesign:PackIcon Kind="Dollar" Foreground="#369BE2"  Width="45" Height="45"/>
+                </Button>
+                <Label Content="הוצאות" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
+            </StackPanel>
+                <StackPanel Grid.Row="1">
+                <Button x:Name="cat" BorderBrush="Transparent" Background="Transparent" Height="55" Width="100" >
+                    <materialDesign:PackIcon Kind="CategoryOutline" Foreground="#369BE2"  Width="45" Height="45"/>
+                </Button>
+                <Label Content="קטגוריות" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
+            </StackPanel>
+                <StackPanel Grid.Row="2">
+                <Button x:Name="pro" BorderBrush="Transparent" Background="Transparent" Height="55" Width="100" >
+                    <materialDesign:PackIcon Kind="BottleCokeOutline" Foreground="#369BE2"  Width="45" Height="50"/>
+                </Button>
+                <Label Content="מוצרים" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
+            </StackPanel>
+                <StackPanel Grid.Row="3">
+                <Button x:Name="store" BorderBrush="Transparent" Background="Transparent" Height="55" Width="100" Click="store_Click" >
+                    <materialDesign:PackIcon Kind="store" Foreground="#369BE2"  Width="45" Height="45"/>
+                </Button>
+                <Label Content="חנויות" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
+            </StackPanel>
         </Grid>
-
+        </Grid>
+        
     </Grid>
 </UserControl>

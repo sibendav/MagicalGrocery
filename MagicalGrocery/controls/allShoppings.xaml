@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
              xmlns:local="clr-namespace:MagicalGrocery.controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -11,25 +12,63 @@
             <RowDefinition Height="3*"/>
             <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
-        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
-            <ItemsControl ItemsSource="{Binding currentModel.carts}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Border Margin="30" Padding="10" CornerRadius="20" BorderThickness="1.5" Background="#FFFDD6" BorderBrush="Black" Width="170" Height="180">
-                            <StackPanel>
-                                <TextBlock Text="{Binding paymentDate}" HorizontalAlignment="Center" FontWeight="DemiBold" FontSize="20" Padding="3"/>
-                                <TextBlock Text="{Binding sumToPay}" FontSize="13" HorizontalAlignment="Center" Padding="3"/>
-                                <TextBlock Text="{Binding sumToPay}" FontSize="13" HorizontalAlignment="Center" Padding="3"/>
-                                <Image Source="{Binding imagePath}" Width="80" Height="80"></Image>
-                            </StackPanel>
-                        </Border>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </ScrollViewer>
-        <!--Label Content="תאריך" HorizontalAlignment="Left" Margin="648,58,0,0" VerticalAlignment="Top" Height="30" Width="113"/>
-        <Label Content="חנות" HorizontalAlignment="Left" Margin="557,58,0,0" VerticalAlignment="Top" Height="30" Width="113"/>
-        <Label Content="סך הכל" HorizontalAlignment="Left" Margin="449,58,0,0" VerticalAlignment="Top" Height="30" Width="113"/>
-        <Label Content="סטטוס" HorizontalAlignment="Left" Margin="341,58,0,0" VerticalAlignment="Top" Height="30" Width="113"/-->
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="1" Content="רשימת קניות"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold"/>
+                <Button Grid.Row="0" Background="Transparent" BorderThickness="0">
+                    <materialDesign:PackIcon Kind="PlaylistTick" Foreground="#369BE2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="45" Height="45"/>
+                </Button>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="429*"/>
+                <ColumnDefinition Width="371*"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid Margin="148,20,148,20.2" FlowDirection="RightToLeft" x:Name="allShops" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="auto"  AutoGenerateColumns="False" ItemsSource="{Binding currentModel.carts}" 
+                      RowHeight="70" IsReadOnly="True" ScrollViewer.CanContentScroll="True" 
+                      ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" SelectionChanged="allShops_SelectionChanged" 
+                      Background="Transparent" RowBackground="#F2CFF6" AlternatingRowBackground="#C2DFF4" Grid.ColumnSpan="2"
+                      >
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="מספר סל" Width="auto" Binding="{Binding cartId}"/>
+                    <DataGridTextColumn Header="תאריך" Binding="{Binding paymentDate, StringFormat='dd/MM/yyyy'}"/>
+                    <DataGridTextColumn Header="חנות" Width="auto" Binding="{Binding store.storeName}"/>
+                    <DataGridTextColumn Header="מספר פריטים" Width="auto" Binding="{Binding numOfProducts}"/>
+                    <DataGridTextColumn Header="סך הכל" Binding="{Binding sumToPay}"/>
+                    <!--DataGridTextColumn Header="סטטוס" Binding="{Binding status}"/-->
+                    <DataGridTemplateColumn Header="סטטוס" Width="auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding status}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!--<DataGridTextColumn x:Name="pridValue" Visibility="Collapsed" Header="" Width="0" Binding="{Binding prid}"/>-->
+                    <DataGridTemplateColumn Header="" Width="auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Background="Transparent" BorderThickness="0" Click="Button_Click">
+                                    <materialDesign:PackIcon Kind="cart" Foreground="#369BE2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="25" Height="30"/>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </Grid>
+
     </Grid>
 </UserControl>

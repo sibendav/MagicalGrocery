@@ -23,12 +23,19 @@ namespace MagicalGrocery.controls
     public partial class EnterUserControl : UserControl
     {
         private EnterUserVM CurrentVm;
-        public EnterUserControl()
+        public Grid MyGrid { get; set; }
+        public EnterUserControl(Grid thisGrid)
         {
             InitializeComponent();
             CurrentVm = new EnterUserVM();
             this.DataContext = CurrentVm;
+            MyGrid = thisGrid;
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MyGrid.Children.Clear();
+            MyGrid.Children.Add(new SignUserControl());
+        }
     }
 }

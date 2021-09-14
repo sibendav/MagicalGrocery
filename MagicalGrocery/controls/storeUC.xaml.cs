@@ -26,16 +26,27 @@ namespace MagicalGrocery.controls
 
         public storeUC(Grid gr, Family fam)
         {
+            InitializeComponent();
             thisVM = new StoreVM(gr, fam);
             this.DataContext = thisVM;
-            InitializeComponent();
+            coboStore.ItemsSource = thisVM.CurrentModel.allStores;
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            currentShop c = new currentShop(thisVM.CurrentModel.ca);
-            thisVM.CurrentModel.thisGrid.Children.Clear();
-            thisVM.CurrentModel.thisGrid.Children.Add(c);
+            if (coboStore.SelectedItem != null)
+            {
+                thisVM.CurrentModel.ca = new Cart() {paymentDate = DateTime.Now ,familyId=thisVM.CurrentModel.fam.familyId, storeId = ((Store)coboStore.SelectedItem).storeId };
+                thisVM.CurrentModel.addCart();
+                currentShop c = new currentShop(thisVM.CurrentModel.ca);
+                thisVM.CurrentModel.thisGrid.Children.Clear();
+                thisVM.CurrentModel.thisGrid.Children.Add(c);
+            }
+            else
+            {
+                MessageBox.Show("בחר חנות!");
+            }
         }
     }
 }

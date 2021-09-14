@@ -38,13 +38,13 @@ namespace MagicalGrocery.commands
         {
             UserControl p = new UserControl();
             if ((string)parameter == "profile")
-                p = new profile(thisFamily);
+                p = new profile(thisFamily, thisGrid);
             if ((string)parameter == "his")
-                p = new allShoppings(thisFamily);
+                p = new allShoppings(thisFamily, thisGrid);
             if ((string)parameter == "sta")
-                p = new statistics();
+                p = new statistics(thisFamily);
             if ((string)parameter == "reco")
-                p = new recommendation();
+                p = new recommendation(thisFamily);
             if ((string)parameter == "news")
                 p = new storeUC(thisGrid, thisFamily);
             //p.HorizontalAlignment = HorizontalAlignment.Center;

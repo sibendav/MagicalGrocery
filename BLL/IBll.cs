@@ -47,7 +47,7 @@ namespace BLL
 
         List<Family> returnAllFamily();
         List<Address> returnAllAddress();
-        void addToFirebase(string path);
+        Task addToFirebase(string path, Cart c);
         List<Store> returnAllStore();
         List<Product> returnAllProduct();
         List<Cart> returnAllCart();

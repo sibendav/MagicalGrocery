@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:MagicalGrocery" xmlns:local1="clr-namespace:MagicalGrocery.controls"
         mc:Ignorable="d"
         Title="LogInWindow"
-        WindowState="Maximized">
-    <Window.Background>
+        WindowState="Maximized" Background="#F2DEF4">
+    <!--Window.Background>
         <ImageBrush  ImageSource="/Images/background1.png" />
-    </Window.Background>
+    </-->
     <Grid x:Name="myGrid">
     </Grid>
 </Window>

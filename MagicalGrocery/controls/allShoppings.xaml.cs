@@ -24,16 +24,25 @@ namespace MagicalGrocery.controls
     {
         public profileVM CurrentVm { set; get; }
         
-        public allShoppings(Family fam)
+        public allShoppings(Family fam, Grid gr)
         {
             InitializeComponent();
-            CurrentVm = new profileVM(fam);
+            CurrentVm = new profileVM(fam, gr);
             this.DataContext = CurrentVm;
 
-            //for (int i=0; i < 3; i++)
-            //{
-            //    listbox.Items.Add(new miniShopForListBox());
-            //}
+            
+        }
+
+        private void allShops_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            currentShop c = new currentShop((Cart)allShops.SelectedItem);
+            CurrentVm.currentModel.thisGrid.Children.Clear();
+            CurrentVm.currentModel.thisGrid.Children.Add(c);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

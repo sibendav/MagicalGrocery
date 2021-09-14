@@ -28,7 +28,8 @@ namespace MagicalGrocery
         {
             InitializeComponent();
             currentVM = new MainWinVM();
-            this.DataContext = currentVM;            
+            this.DataContext = currentVM;
+            mainGrid.Children.Add(new EnterUserControl(mainGrid));
         }
 
         
